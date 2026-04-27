@@ -86,7 +86,8 @@ color: var(–navy) !important;
 /* ── HERO ── */
 #hero {
 min-height: 100vh;
-background: var(–navy);
+background: #0B1929 !important;
+background-color: #0B1929 !important;
 display: grid;
 grid-template-columns: 1fr 1fr;
 position: relative;
@@ -109,6 +110,7 @@ pointer-events: none;
 display: flex; flex-direction: column; justify-content: center;
 padding: 140px 72px 100px 72px;
 position: relative; z-index: 2;
+background: transparent;
 }
 .hero-eyebrow {
 display: flex; align-items: center; gap: 14px;
@@ -567,11 +569,11 @@ transition: color 0.2s;
 .footer-legal a:hover { color: rgba(255,255,255,0.5); }
 
 /* ── ANIMATIONS ── */
-.fade-up {
-opacity: 0; transform: translateY(28px);
-transition: opacity 0.65s ease, transform 0.65s ease;
-}
+.fade-up { opacity: 1; transform: none; }
+@media (min-width: 769px) {
+.fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
 .fade-up.visible { opacity: 1; transform: none; }
+}
 
 /* ── MOBILE RESPONSIVE ── */
 @media (max-width: 768px) {
