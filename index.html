@@ -3,742 +3,405 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>International Labor Relations</title>
+<title>International Labor Relations — Confidential Labor Risk Assessment</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap');
 
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif;background:#F5F2ED;color:#0B1929;overflow-x:hidden;line-height:1.6;}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;}
 
-  :root {
-    --navy:    #0B1929;
-    --navy2:   #132338;
-    --gold:    #B8924A;
-    --gold-lt: #D4AF72;
-    --cream:   #F5F2ED;
-    --slate:   #8A96A3;
-    --white:   #FFFFFF;
-    --rule:    rgba(184,146,74,0.35);
-    --f-display: 'Cormorant Garamond', 'Palatino Linotype', Palatino, Georgia, serif;
-    --f-body:    'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-  }
+/* ── VARIABLES ── */
+:root{
+  --navy:#0B1929;
+  --navy2:#132338;
+  --gold:#B8924A;
+  --gold-lt:#D4AF72;
+  --cream:#F5F2ED;
+  --cream2:#EDE8E1;
+  --white:#FFFFFF;
+  --slate:#5A6A7A;
+  --red:#C0392B;
+  --green:#1B6B5A;
+  --f-display:'Cormorant Garamond','Palatino Linotype',Georgia,serif;
+  --f-body:'DM Sans',-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif;
+}
 
-  html { scroll-behavior: smooth; }
-  a { color: inherit; text-decoration: none; }
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 52px;height:68px;background:rgba(11,25,41,0.97);backdrop-filter:blur(10px);border-bottom:1px solid rgba(184,146,74,0.15);}
+.nav-logo{display:flex;flex-direction:column;gap:1px;}
+.nav-logo-name{font-family:var(--f-display);font-size:17px;font-weight:500;letter-spacing:0.05em;color:#FFFFFF;line-height:1;}
+.nav-logo-sub{font-size:8.5px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);font-weight:400;}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none;}
+.nav-links a{font-size:12px;letter-spacing:0.1em;color:rgba(255,255,255,0.65);transition:color 0.2s;font-weight:400;}
+.nav-links a:hover{color:var(--gold-lt);}
+.nav-phone{font-size:12px;color:rgba(255,255,255,0.5);letter-spacing:0.06em;}
+.nav-phone a{color:var(--gold);font-weight:500;}
+.nav-cta{background:var(--gold);color:var(--navy) !important;padding:9px 22px;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;transition:background 0.2s;}
+.nav-cta:hover{background:var(--gold-lt) !important;}
+.nav-mobile-cta{display:none;background:var(--gold);color:var(--navy) !important;padding:8px 16px;font-size:11px;font-weight:600;letter-spacing:0.1em;}
 
-  body {
-    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
-    background: #F5F2ED;
-    color: #0B1929;
-    overflow-x: hidden;
-  }
+/* ── HERO ── */
+#hero{min-height:100vh;background:#0B1929;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;padding:120px 0 80px;}
+.hero-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(184,146,74,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(184,146,74,0.04) 1px,transparent 1px);background-size:64px 64px;pointer-events:none;}
+.hero-bg-glow{position:absolute;top:-20%;right:-10%;width:60%;height:80%;background:radial-gradient(ellipse,rgba(184,146,74,0.07) 0%,transparent 60%);pointer-events:none;}
+.hero-inner{max-width:1200px;margin:0 auto;padding:0 52px;display:grid;grid-template-columns:1fr 420px;gap:72px;align-items:center;}
+.hero-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:28px;}
+.hero-eyebrow-line{width:32px;height:1px;background:var(--gold);}
+.hero-eyebrow-text{font-size:10px;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold);font-weight:500;}
+.hero-headline{font-family:var(--f-display);font-size:clamp(38px,4.2vw,60px);font-weight:300;line-height:1.1;color:#FFFFFF;margin-bottom:24px;letter-spacing:-0.01em;}
+.hero-headline em{font-style:italic;color:var(--gold-lt);}
+.hero-sub{font-size:16px;line-height:1.8;color:rgba(255,255,255,0.6);max-width:520px;margin-bottom:40px;font-weight:300;}
+.hero-sub strong{color:rgba(255,255,255,0.85);font-weight:500;}
+.hero-cta-group{display:flex;flex-direction:column;gap:12px;margin-bottom:40px;}
+.btn-primary{display:inline-block;background:var(--gold);color:var(--navy);padding:16px 36px;font-size:11.5px;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;font-family:var(--f-body);transition:background 0.2s,transform 0.15s;border:none;cursor:pointer;text-align:center;}
+.btn-primary:hover{background:var(--gold-lt);transform:translateY(-1px);}
+.btn-ghost{display:inline-block;background:transparent;border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.75);padding:14px 32px;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;font-weight:500;font-family:var(--f-body);transition:border-color 0.2s,color 0.2s;text-align:center;}
+.btn-ghost:hover{border-color:rgba(255,255,255,0.6);color:#FFFFFF;}
+.hero-direct{font-size:13px;color:rgba(255,255,255,0.4);display:flex;align-items:center;gap:8px;}
+.hero-direct a{color:var(--gold);font-weight:500;}
+.hero-direct a:hover{color:var(--gold-lt);}
 
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 56px;
-    height: 72px;
-    background: rgba(11,25,41,0.97);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(184,146,74,0.18);
-  }
-  .nav-logo {
-    display: flex; flex-direction: column; gap: 1px;
-  }
-  .nav-logo-top {
-    font-family: 'Cormorant Garamond', 'Palatino Linotype', Georgia, serif;
-    font-size: 18px; font-weight: 500; letter-spacing: 0.06em;
-    color: #FFFFFF;
-    line-height: 1;
-  }
-  .nav-logo-sub {
-    font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
-    color: #B8924A; font-weight: 400;
-  }
-  .nav-links {
-    display: flex; align-items: center; gap: 36px; list-style: none;
-  }
-  .nav-links a {
-    font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase;
-    color: rgba(255,255,255,0.72); text-decoration: none;
-    transition: color 0.2s;
-    font-weight: 400;
-  }
-  .nav-links a:hover { color: #D4AF72; }
-  .nav-cta {
-    background: transparent;
-    border: 1px solid #B8924A;
-    color: #B8924A !important;
-    padding: 9px 22px;
-    font-size: 10.5px !important;
-    letter-spacing: 0.16em !important;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: background 0.2s, color 0.2s !important;
-    text-decoration: none;
-    font-weight: 500 !important;
-  }
-  .nav-cta:hover {
-    background: #B8924A !important;
-    color: #0B1929 !important;
-  }
+/* Hero intake form */
+.hero-form-box{background:rgba(255,255,255,0.04);border:1px solid rgba(184,146,74,0.22);padding:36px 32px;}
+.hero-form-title{font-family:var(--f-display);font-size:20px;font-weight:500;color:#FFFFFF;margin-bottom:6px;}
+.hero-form-sub{font-size:12px;color:rgba(255,255,255,0.45);margin-bottom:24px;letter-spacing:0.04em;}
+.form-row{margin-bottom:13px;}
+.form-label{display:block;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:5px;font-weight:500;}
+.form-input,.form-select,.form-textarea{width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:#FFFFFF;padding:10px 13px;font-size:13px;font-family:var(--f-body);outline:none;transition:border-color 0.2s;-webkit-appearance:none;}
+.form-input::placeholder{color:rgba(255,255,255,0.25);}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--gold);}
+.form-select{background:#132338;color:rgba(255,255,255,0.75);cursor:pointer;}
+.form-select option{background:#132338;color:#FFFFFF;}
+.form-textarea{resize:vertical;min-height:80px;}
+.form-privacy{font-size:11px;color:rgba(255,255,255,0.3);margin-top:12px;line-height:1.6;}
+.form-privacy strong{color:rgba(255,255,255,0.5);}
+.btn-form-submit{width:100%;background:var(--gold);color:var(--navy);padding:14px;font-size:11.5px;letter-spacing:0.16em;text-transform:uppercase;font-weight:700;font-family:var(--f-body);border:none;cursor:pointer;margin-top:16px;transition:background 0.2s;}
+.btn-form-submit:hover{background:var(--gold-lt);}
 
-  /* ── HERO ── */
-  #hero {
-    min-height: 100vh;
-    background: #0B1929 !important;
-    background-color: #0B1929 !important;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero-bg-texture {
-    position: absolute; inset: 0;
-    background-image:
-      radial-gradient(ellipse 80% 60% at 65% 50%, rgba(184,146,74,0.06) 0%, transparent 70%),
-      repeating-linear-gradient(
-        -45deg,
-        transparent,
-        transparent 40px,
-        rgba(255,255,255,0.012) 40px,
-        rgba(255,255,255,0.012) 41px
-      );
-    pointer-events: none;
-  }
-  .hero-left {
-    display: flex; flex-direction: column; justify-content: center;
-    padding: 140px 72px 100px 72px;
-    position: relative; z-index: 2;
-    background: transparent;
-  }
-  .hero-eyebrow {
-    display: flex; align-items: center; gap: 14px;
-    margin-bottom: 32px;
-  }
-  .hero-eyebrow-line {
-    width: 36px; height: 1px; background: #B8924A;
-  }
-  .hero-eyebrow-text {
-    font-size: 10px; letter-spacing: 0.26em; text-transform: uppercase;
-    color: #B8924A; font-weight: 400;
-  }
-  .hero-headline {
-    font-family: 'Cormorant Garamond', 'Palatino Linotype', Georgia, serif;
-    font-size: clamp(44px, 4.5vw, 64px);
-    font-weight: 300;
-    line-height: 1.12;
-    color: #FFFFFF;
-    margin-bottom: 28px;
-    letter-spacing: -0.01em;
-  }
-  .hero-headline em {
-    font-style: italic;
-    color: #D4AF72;
-  }
-  .hero-sub {
-    font-size: 15px; line-height: 1.75;
-    color: rgba(255,255,255,0.62);
-    max-width: 480px;
-    margin-bottom: 52px;
-    font-weight: 300;
-  }
-  .hero-actions {
-    display: flex; align-items: center; gap: 32px;
-  }
-  .btn-primary {
-    background: #B8924A;
-    color: #0B1929;
-    padding: 16px 36px;
-    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
-    font-weight: 500;
-    border: none; cursor: pointer;
-    transition: background 0.2s, transform 0.15s;
-    text-decoration: none;
-    display: inline-block;
-    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
-  }
-  .btn-primary:hover { background: #D4AF72; transform: translateY(-1px); }
-  .btn-ghost-text {
-    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
-    color: rgba(255,255,255,0.5); cursor: pointer;
-    display: flex; align-items: center; gap: 10px;
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-  .btn-ghost-text:hover { color: #FFFFFF; }
-  .btn-ghost-text::after {
-    content: '→'; font-size: 14px; transition: transform 0.2s;
-  }
-  .btn-ghost-text:hover::after { transform: translateX(4px); }
-  .hero-micro {
-    margin-top: 20px;
-    font-size: 11px; color: rgba(255,255,255,0.32); letter-spacing: 0.06em;
-  }
+/* ── PROOF BAR ── */
+#proof{background:#132338;border-top:1px solid rgba(184,146,74,0.12);border-bottom:1px solid rgba(184,146,74,0.12);padding:20px 0;}
+.proof-inner{max-width:1200px;margin:0 auto;padding:0 52px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.proof-item{display:flex;align-items:center;gap:10px;}
+.proof-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+.proof-text{font-size:12px;color:rgba(255,255,255,0.55);letter-spacing:0.06em;}
+.proof-divider{width:1px;height:20px;background:rgba(255,255,255,0.1);}
 
-  .hero-right {
-    position: relative; z-index: 2;
-    display: flex; align-items: center; justify-content: center;
-    padding: 140px 72px 100px 20px;
-  }
-  .hero-card-cluster {
-    display: flex; flex-direction: column; gap: 16px; width: 100%; max-width: 360px;
-  }
-  .hero-stat-card {
-    border: 1px solid rgba(184,146,74,0.22);
-    background: rgba(255,255,255,0.03);
-    padding: 28px 32px;
-    position: relative;
-    animation: fadeSlideIn 0.7s ease both;
-  }
-  .hero-stat-card:nth-child(1) { animation-delay: 0.2s; margin-left: 0; }
-  .hero-stat-card:nth-child(2) { animation-delay: 0.4s; margin-left: 32px; }
-  .hero-stat-card:nth-child(3) { animation-delay: 0.6s; margin-left: 16px; }
-  @keyframes fadeSlideIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  .stat-num {
-    font-family: 'Cormorant Garamond', 'Palatino Linotype', Georgia, serif;
-    font-size: 48px; font-weight: 300;
-    color: #B8924A;
-    line-height: 1;
-    margin-bottom: 6px;
-  }
-  .stat-label {
-    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
-    color: rgba(255,255,255,0.5); font-weight: 400;
-  }
-  .hero-divider {
-    position: absolute; top: 0; bottom: 0; left: 50%;
-    width: 1px; background: rgba(184,146,74,0.14);
-    pointer-events: none;
-  }
-  .hero-scroll-hint {
-    position: absolute; bottom: 36px; left: 72px;
-    display: flex; align-items: center; gap: 12px;
-    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
-    color: rgba(255,255,255,0.28); z-index: 2;
-  }
-  .scroll-line {
-    width: 40px; height: 1px; background: rgba(255,255,255,0.2);
-    position: relative; overflow: hidden;
-  }
-  .scroll-line::after {
-    content: '';
-    position: absolute; top: 0; left: -100%;
-    width: 100%; height: 100%; background: #B8924A;
-    animation: scrollLine 2s ease-in-out infinite;
-  }
-  @keyframes scrollLine {
-    0%   { left: -100%; }
-    50%  { left: 0%; }
-    100% { left: 100%; }
-  }
+/* ── SITUATION SPLIT ── */
+#situation{background:var(--cream);padding:80px 0;}
+.situation-inner{max-width:1200px;margin:0 auto;padding:0 52px;}
+.situation-label{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+.situation-label-line{width:28px;height:1px;background:var(--gold);}
+.situation-label-text{font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold);font-weight:500;}
+.situation-headline{font-family:var(--f-display);font-size:clamp(28px,2.8vw,40px);font-weight:300;color:var(--navy);margin-bottom:10px;}
+.situation-headline em{font-style:italic;color:var(--gold);}
+.situation-sub{font-size:15px;color:var(--slate);font-weight:300;max-width:580px;line-height:1.7;margin-bottom:48px;}
+.situation-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.situation-card{background:var(--white);padding:40px 32px;border-top:3px solid transparent;transition:border-color 0.2s,box-shadow 0.2s;cursor:pointer;}
+.situation-card:hover{border-top-color:var(--gold);box-shadow:0 8px 32px rgba(0,0,0,0.08);}
+.situation-card.urgent{border-top-color:var(--red);}
+.situation-card.warning{border-top-color:var(--gold);}
+.situation-card.strategic{border-top-color:var(--navy);}
+.sit-badge{display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border-radius:100px;margin-bottom:20px;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;}
+.sit-badge.red{background:rgba(192,57,43,0.1);color:var(--red);}
+.sit-badge.amber{background:rgba(184,146,74,0.12);color:var(--gold);}
+.sit-badge.blue{background:rgba(11,25,41,0.08);color:var(--navy);}
+.sit-badge-dot{width:6px;height:6px;border-radius:50%;}
+.sit-badge-dot.red{background:var(--red);}
+.sit-badge-dot.amber{background:var(--gold);}
+.sit-badge-dot.blue{background:var(--navy);}
+.sit-title{font-family:var(--f-display);font-size:22px;font-weight:500;color:var(--navy);margin-bottom:12px;line-height:1.2;}
+.sit-body{font-size:13.5px;color:var(--slate);line-height:1.75;font-weight:300;margin-bottom:24px;}
+.sit-triggers{display:flex;flex-direction:column;gap:7px;margin-bottom:24px;}
+.sit-trigger{font-size:12px;color:var(--slate);display:flex;align-items:flex-start;gap:8px;}
+.sit-trigger-arrow{color:var(--gold);font-size:10px;margin-top:3px;flex-shrink:0;}
+.sit-cta{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;transition:gap 0.2s;}
+.sit-cta.red{color:var(--red);}
+.sit-cta.amber{color:var(--gold);}
+.sit-cta.blue{color:var(--navy);}
+.sit-cta:hover{gap:14px;}
 
-  /* ── SECTION SHARED ── */
-  section { position: relative; }
-  .section-inner { max-width: 1200px; margin: 0 auto; padding: 0 56px; }
-  .section-label {
-    display: flex; align-items: center; gap: 14px;
-    margin-bottom: 20px;
-  }
-  .section-label-line { width: 28px; height: 1px; background: #B8924A; }
-  .section-label-text {
-    font-size: 10px; letter-spacing: 0.26em; text-transform: uppercase;
-    color: #B8924A; font-weight: 400;
-  }
-  .section-headline {
-    font-family: 'Cormorant Garamond', 'Palatino Linotype', Georgia, serif;
-    font-size: clamp(32px, 3vw, 48px);
-    font-weight: 300; line-height: 1.2;
-    color: #0B1929;
-    letter-spacing: -0.01em;
-  }
-  .section-headline.light { color: #FFFFFF; }
-  .section-headline em { font-style: italic; color: #B8924A; }
+/* ── WHAT HAPPENS NEXT ── */
+#next{background:var(--navy);padding:80px 0;}
+.next-inner{max-width:1200px;margin:0 auto;padding:0 52px;}
+.next-header{text-align:center;max-width:560px;margin:0 auto 56px;}
+.section-label-light{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:16px;}
+.section-label-light-line{width:24px;height:1px;background:var(--gold);}
+.section-label-light-text{font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold);font-weight:500;}
+.section-headline-light{font-family:var(--f-display);font-size:clamp(26px,2.8vw,38px);font-weight:300;color:#FFFFFF;line-height:1.25;}
+.section-headline-light em{font-style:italic;color:var(--gold-lt);}
+.next-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;}
+.next-steps::before{content:'';position:absolute;top:40px;left:12%;right:12%;height:1px;background:rgba(184,146,74,0.2);z-index:0;}
+.next-step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 24px;position:relative;z-index:1;}
+.next-step-num{width:80px;height:80px;border-radius:50%;background:var(--navy);border:1px solid rgba(184,146,74,0.35);display:flex;align-items:center;justify-content:center;margin-bottom:20px;box-shadow:0 0 0 8px rgba(11,25,41,0.8);}
+.next-step-num-inner{font-family:var(--f-display);font-size:28px;font-weight:300;color:var(--gold);}
+.next-step-title{font-size:14px;font-weight:600;color:#FFFFFF;margin-bottom:10px;letter-spacing:0.02em;}
+.next-step-body{font-size:13px;line-height:1.7;color:rgba(255,255,255,0.5);font-weight:300;}
+.next-reassurance{background:rgba(184,146,74,0.07);border:1px solid rgba(184,146,74,0.18);padding:28px 36px;margin-top:56px;text-align:center;}
+.next-reassurance-text{font-size:14px;color:rgba(255,255,255,0.6);line-height:1.7;font-weight:300;}
+.next-reassurance-text strong{color:rgba(255,255,255,0.85);font-weight:500;}
 
-  /* ── PROBLEM BAND ── */
-  #problem {
-    background: #FFFFFF;
-    padding: 100px 0;
-    border-top: 1px solid rgba(11,25,41,0.08);
-  }
-  .problem-grid {
-    display: grid; grid-template-columns: 5fr 4fr;
-    gap: 80px; align-items: center;
-  }
-  .problem-body {
-    font-size: 17px; line-height: 1.8;
-    color: #3D4D5C;
-    font-weight: 300;
-    margin-top: 28px;
-  }
-  .problem-body p + p { margin-top: 20px; }
-  .problem-body strong { color: #0B1929; font-weight: 500; }
-  .problem-pull {
-    border-left: 2px solid #B8924A;
-    padding-left: 28px;
-  }
-  .problem-pull-quote {
-    font-family: 'Cormorant Garamond', 'Palatino Linotype', Georgia, serif;
-    font-size: 26px; font-weight: 300; font-style: italic;
-    line-height: 1.5;
-    color: #0B1929;
-    margin-bottom: 16px;
-  }
-  .problem-pull-attr {
-    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
-    color: #8A96A3;
-  }
+/* ── VULNERABILITY SECTION ── */
+#vulnerability{background:var(--white);padding:100px 0;}
+.vuln-inner{max-width:1200px;margin:0 auto;padding:0 52px;}
+.section-label{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+.section-label-line{width:28px;height:1px;background:var(--gold);}
+.section-label-text{font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold);font-weight:500;}
+.section-headline{font-family:var(--f-display);font-size:clamp(28px,3vw,42px);font-weight:300;color:var(--navy);line-height:1.2;}
+.section-headline em{font-style:italic;color:var(--gold);}
+.vuln-intro{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;margin-bottom:56px;}
+.vuln-body{font-size:15px;line-height:1.85;color:var(--slate);font-weight:300;margin-top:20px;}
+.vuln-body p+p{margin-top:16px;}
+.vuln-body strong{color:var(--navy);font-weight:500;}
+.vuln-callout{background:var(--cream);border-left:3px solid var(--gold);padding:24px 28px;margin-top:24px;}
+.vuln-callout-quote{font-family:var(--f-display);font-size:18px;font-style:italic;color:var(--navy);line-height:1.6;margin-bottom:8px;}
+.vuln-callout-attr{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--slate);}
 
-  /* ── DIFFERENCE ── */
-  #difference {
-    background: #0B1929;
-    padding: 110px 0;
-  }
-  .diff-intro {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 80px; margin-bottom: 72px; align-items: start;
-  }
-  .diff-body {
-    font-size: 16px; line-height: 1.85;
-    color: rgba(255,255,255,0.62);
-    font-weight: 300; margin-top: 28px;
-  }
-  .diff-body p + p { margin-top: 18px; }
-  .diff-body strong { color: rgba(255,255,255,0.9); font-weight: 400; }
-  .diff-pillars {
-    display: grid; grid-template-columns: repeat(3,1fr);
-    gap: 2px;
-    border: 1px solid rgba(184,146,74,0.2);
-  }
-  .pillar {
-    padding: 40px 32px;
-    border-right: 1px solid rgba(184,146,74,0.14);
-    position: relative;
-    transition: background 0.3s;
-  }
-  .pillar:last-child { border-right: none; }
-  .pillar:hover { background: rgba(184,146,74,0.06); }
-  .pillar-num {
-    font-family: 'Cormorant Garamond', 'Palatino Linotype', Georgia, serif;
-    font-size: 56px; font-weight: 300;
-    color: rgba(184,146,74,0.18);
-    line-height: 1;
-    margin-bottom: 20px;
-    transition: color 0.3s;
-  }
-  .pillar:hover .pillar-num { color: rgba(184,146,74,0.4); }
-  .pillar-title {
-    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
-    color: #B8924A; margin-bottom: 14px; font-weight: 500;
-  }
-  .pillar-body {
-    font-size: 14px; line-height: 1.7;
-    color: rgba(255,255,255,0.55); font-weight: 300;
-  }
+/* Warning signs */
+.warning-band{background:var(--navy);padding:44px 48px;margin-bottom:48px;}
+.warning-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-top:28px;}
+.warning-item{border-top:2px solid rgba(184,146,74,0.35);padding-top:18px;}
+.warning-item-label{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:10px;}
+.warning-item-text{font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7;font-weight:300;}
 
-  /* ── INSIDER ADVANTAGE (NEW DIFFERENTIATOR) ── */
-  #insider {
-    background: #F5F2ED;
-    padding: 110px 0;
-  }
-  .insider-grid {
-    display: grid; grid-template-columns: 4fr 5fr;
-    gap: 80px; align-items: center;
-  }
-  .insider-left .section-headline { margin-bottom: 28px; }
-  .insider-left p {
-    font-size: 15.5px; line-height: 1.8;
-    color: #3D4D5C; font-weight: 300;
-    margin-bottom: 18px;
-  }
-  .insider-credential-row {
-    display: flex; flex-wrap: wrap; gap: 10px;
-    margin-top: 36px;
-  }
-  .cred-chip {
-    border: 1px solid rgba(11,25,41,0.18);
-    padding: 7px 16px;
-    font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase;
-    color: #0B1929; font-weight: 400;
-    background: #FFFFFF;
-  }
-  .insider-right {
-    background: #132338;
-    padding: 52px;
-    position: relative;
-  }
-  .insider-right::before {
-    content: '"';
-    position: absolute; top: 20px; left: 44px;
-    font-family: 'Cormorant Garamond', 'Palatino Linotype', Georgia, serif;
-    font-size: 120px; line-height: 1;
-    color: rgba(184,146,74,0.15);
-    pointer-events: none;
-  }
-  .insider-quote {
-    font-family: 'Cormorant Garamond', 'Palatino Linotype', Georgia, serif;
-    font-size: 22px; font-weight: 300; font-style: italic;
-    line-height: 1.65; color: rgba(255,255,255,0.88);
-    margin-bottom: 32px; position: relative; z-index: 1;
-  }
-  .insider-quote-attr {
-    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
-    color: #B8924A; display: flex; align-items: center; gap: 12px;
-  }
-  .insider-quote-attr::before {
-    content: ''; display: block; width: 24px; height: 1px; background: #B8924A;
-  }
+/* Cost stats */
+.cost-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid rgba(11,25,41,0.08);margin-bottom:48px;}
+.cost-stat{padding:36px 32px;text-align:center;border-right:1px solid rgba(11,25,41,0.08);}
+.cost-stat:last-child{border-right:none;}
+.cost-stat-num{font-family:var(--f-display);font-size:52px;font-weight:300;color:var(--gold);line-height:1;margin-bottom:8px;}
+.cost-stat-label{font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--slate);margin-bottom:10px;font-weight:500;}
+.cost-stat-body{font-size:13px;color:var(--slate);line-height:1.65;font-weight:300;}
 
-  /* ── SERVICES ── */
-  #services {
-    background: #FFFFFF;
-    padding: 110px 0;
-    border-top: 1px solid rgba(11,25,41,0.07);
-  }
-  .services-header {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 60px; align-items: end;
-    margin-bottom: 64px;
-  }
-  .services-intro-text {
-    font-size: 15px; line-height: 1.8; color: #5A6A7A;
-    font-weight: 300; margin-top: 20px;
-  }
-  .services-grid {
-    display: grid; grid-template-columns: repeat(3,1fr);
-    gap: 2px;
-  }
-  .service-card {
-    background: #F5F2ED;
-    padding: 44px 36px;
-    border-top: 2px solid transparent;
-    transition: border-color 0.3s, background 0.3s;
-    cursor: default;
-  }
-  .service-card:hover {
-    border-color: #B8924A;
-    background: #FFFFFF;
-  }
-  .service-icon {
-    width: 36px; height: 36px; margin-bottom: 24px;
-    opacity: 0.6;
-  }
-  .service-title {
-    font-family: 'Cormorant Garamond', 'Palatino Linotype', Georgia, serif;
-    font-size: 22px; font-weight: 400; line-height: 1.25;
-    color: #0B1929; margin-bottom: 14px;
-    letter-spacing: -0.01em;
-  }
-  .service-body {
-    font-size: 13.5px; line-height: 1.75;
-    color: #5A6A7A; font-weight: 300;
-  }
-  .service-link {
-    display: inline-flex; align-items: center; gap: 8px;
-    margin-top: 24px;
-    font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase;
-    color: #B8924A; text-decoration: none; font-weight: 500;
-    transition: gap 0.2s;
-  }
-  .service-link:hover { gap: 14px; }
+/* Dashboard */
+.dashboard-wrap{background:var(--navy);border-radius:6px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,0.18);margin-bottom:48px;}
+.db-header{background:#0D1E30;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(184,146,74,0.12);}
+.db-title{font-family:var(--f-display);font-size:15px;color:#FFFFFF;font-weight:500;}
+.db-badge{font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(184,146,74,0.3);padding:4px 10px;}
+.db-note{font-size:10px;color:rgba(255,255,255,0.3);font-style:italic;}
+.db-metrics{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid rgba(255,255,255,0.05);}
+.db-metric{padding:22px 20px;border-right:1px solid rgba(255,255,255,0.05);}
+.db-metric:last-child{border-right:none;}
+.db-metric-label{font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:8px;}
+.db-metric-val{font-family:var(--f-display);font-size:32px;font-weight:300;line-height:1;margin-bottom:4px;}
+.db-metric-val.red{color:var(--red);}
+.db-metric-val.amber{color:var(--gold-lt);}
+.db-metric-val.white{color:#FFFFFF;}
+.db-metric-val.green{color:#4AC49A;}
+.db-metric-sub{font-size:10px;color:rgba(255,255,255,0.3);}
+.db-body{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+.db-scores{padding:24px;}
+.db-scores-label{font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:18px;}
+.db-score-row{display:grid;grid-template-columns:150px 1fr 64px;gap:12px;align-items:center;margin-bottom:12px;}
+.db-score-name{font-size:12px;color:rgba(255,255,255,0.6);}
+.db-bar-track{background:rgba(255,255,255,0.05);border-radius:2px;height:7px;overflow:hidden;}
+.db-bar-fill{height:100%;border-radius:2px;}
+.db-bar-fill.red{background:var(--red);}
+.db-bar-fill.amber{background:var(--gold);}
+.db-bar-fill.green{background:#2A8A74;}
+.db-score-val{font-size:12px;font-weight:600;text-align:right;}
+.db-score-val.red{color:var(--red);}
+.db-score-val.amber{color:var(--gold-lt);}
+.db-score-val.green{color:#4AC49A;}
+.db-right{border-left:1px solid rgba(255,255,255,0.05);padding:24px;}
+.db-dist-label{font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:14px;}
+.db-dist-bar{display:flex;height:24px;border-radius:2px;overflow:hidden;gap:1px;margin-bottom:12px;}
+.db-dist-seg{display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;color:rgba(255,255,255,0.9);}
+.db-dist-legend{display:flex;flex-direction:column;gap:7px;}
+.db-dist-legend-item{display:flex;align-items:center;gap:8px;font-size:11px;color:rgba(255,255,255,0.45);}
+.db-dist-legend-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0;}
+.db-queue{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:20px 24px;border-top:1px solid rgba(255,255,255,0.05);}
+.db-queue-card{padding:14px;border-radius:3px;text-align:center;}
+.db-queue-card.high{background:rgba(192,57,43,0.15);border:1px solid rgba(192,57,43,0.3);}
+.db-queue-card.watch{background:rgba(184,146,74,0.1);border:1px solid rgba(184,146,74,0.2);}
+.db-queue-card.neutral{background:rgba(138,150,163,0.1);border:1px solid rgba(138,150,163,0.2);}
+.db-queue-card.company{background:rgba(42,138,116,0.1);border:1px solid rgba(42,138,116,0.2);}
+.db-queue-label{font-size:9px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;margin-bottom:5px;}
+.db-queue-label.red{color:var(--red);}
+.db-queue-label.amber{color:var(--gold-lt);}
+.db-queue-label.slate{color:#8A96A3;}
+.db-queue-label.green{color:#4AC49A;}
+.db-queue-num{font-family:var(--f-display);font-size:30px;font-weight:300;color:#FFFFFF;line-height:1;}
+.db-queue-sub{font-size:10px;color:rgba(255,255,255,0.3);margin-top:3px;line-height:1.4;}
+.db-alert{background:rgba(192,57,43,0.08);border-top:1px solid rgba(192,57,43,0.2);padding:14px 24px;}
+.db-alert-text{font-size:12px;color:rgba(255,255,255,0.55);line-height:1.6;}
+.db-alert-text strong{color:var(--red);}
+.db-footer{background:rgba(184,146,74,0.05);border-top:1px solid rgba(184,146,74,0.1);padding:13px 24px;}
+.db-footer-note{font-size:11px;color:rgba(255,255,255,0.3);font-style:italic;}
 
-  /* ── CTA BAND ── */
-  #cta {
-    background: #0B1929;
-    padding: 100px 0;
-    position: relative; overflow: hidden;
-  }
-  #cta::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(184,146,74,0.08) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .cta-inner {
-    display: grid; grid-template-columns: 5fr 3fr;
-    gap: 80px; align-items: center;
-    position: relative; z-index: 1;
-  }
-  .cta-headline {
-    font-family: 'Cormorant Garamond', 'Palatino Linotype', Georgia, serif;
-    font-size: clamp(36px, 3.5vw, 52px);
-    font-weight: 300; line-height: 1.2;
-    color: #FFFFFF;
-    margin-bottom: 20px;
-  }
-  .cta-headline em { font-style: italic; color: #D4AF72; }
-  .cta-sub {
-    font-size: 15px; line-height: 1.75;
-    color: rgba(255,255,255,0.55); font-weight: 300;
-    max-width: 520px;
-  }
-  .cta-box {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(184,146,74,0.28);
-    padding: 44px 40px;
-    text-align: center;
-  }
-  .cta-box-headline {
-    font-family: 'Cormorant Garamond', 'Palatino Linotype', Georgia, serif;
-    font-size: 28px; font-weight: 300;
-    color: #FFFFFF; margin-bottom: 8px;
-  }
-  .cta-box-sub {
-    font-size: 12px; letter-spacing: 0.08em;
-    color: rgba(255,255,255,0.45); margin-bottom: 32px;
-  }
-  .cta-box .btn-primary {
-    width: 100%; text-align: center; display: block;
-    padding: 18px;
-    font-size: 10.5px;
-  }
-  .cta-box-micro {
-    margin-top: 16px;
-    font-size: 11px; color: rgba(255,255,255,0.3);
-    letter-spacing: 0.05em;
-  }
-  .cta-trust-row {
-    display: flex; gap: 28px; margin-top: 40px; flex-wrap: wrap;
-  }
-  .trust-item {
-    display: flex; align-items: center; gap: 10px;
-    font-size: 12px; color: rgba(255,255,255,0.45);
-    letter-spacing: 0.04em;
-  }
-  .trust-dot {
-    width: 6px; height: 6px;
-    border-radius: 50%; background: #B8924A;
-    flex-shrink: 0;
-  }
+/* Six dimensions */
+.six-dims{margin-bottom:48px;}
+.six-dims-title{font-family:var(--f-display);font-size:28px;font-weight:300;color:var(--navy);margin-bottom:28px;}
+.six-dims-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.dim-card{background:var(--cream);padding:26px 24px;border-top:3px solid var(--gold);}
+.dim-card.dark{border-top-color:var(--navy);}
+.dim-num{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:8px;}
+.dim-card.dark .dim-num{color:var(--slate);}
+.dim-title{font-size:14px;font-weight:600;color:var(--navy);margin-bottom:8px;}
+.dim-body{font-size:13px;color:var(--slate);line-height:1.7;font-weight:300;}
 
-  /* ── FOOTER ── */
-  footer {
-    background: #07111C;
-    padding: 56px 0 36px;
-    border-top: 1px solid rgba(184,146,74,0.14);
-  }
-  .footer-inner {
-    max-width: 1200px; margin: 0 auto; padding: 0 56px;
-    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 56px;
-  }
-  .footer-brand-top {
-    font-family: 'Cormorant Garamond', 'Palatino Linotype', Georgia, serif;
-    font-size: 18px; font-weight: 500; letter-spacing: 0.06em;
-    color: #FFFFFF; margin-bottom: 4px;
-  }
-  .footer-brand-sub {
-    font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
-    color: #B8924A; margin-bottom: 20px;
-  }
-  .footer-tagline {
-    font-size: 13px; line-height: 1.7;
-    color: rgba(255,255,255,0.35); font-weight: 300;
-    max-width: 260px;
-  }
-  .footer-col-title {
-    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
-    color: #B8924A; margin-bottom: 20px; font-weight: 500;
-  }
-  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-  .footer-col ul a {
-    font-size: 13px; color: rgba(255,255,255,0.45);
-    text-decoration: none; transition: color 0.2s;
-  }
-  .footer-col ul a:hover { color: rgba(255,255,255,0.8); }
-  .footer-bottom {
-    max-width: 1200px; margin: 48px auto 0;
-    padding: 20px 56px 0;
-    border-top: 1px solid rgba(255,255,255,0.06);
-    display: flex; justify-content: space-between; align-items: center;
-  }
-  .footer-copy {
-    font-size: 11.5px; color: rgba(255,255,255,0.25); letter-spacing: 0.04em;
-  }
-  .footer-legal {
-    display: flex; gap: 24px;
-  }
-  .footer-legal a {
-    font-size: 11px; color: rgba(255,255,255,0.25);
-    text-decoration: none; letter-spacing: 0.06em;
-    transition: color 0.2s;
-  }
-  .footer-legal a:hover { color: rgba(255,255,255,0.5); }
+/* Audit CTA band */
+.audit-cta{background:var(--navy);padding:44px 52px;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;}
+.audit-cta-headline{font-family:var(--f-display);font-size:28px;font-weight:300;color:#FFFFFF;margin-bottom:10px;}
+.audit-cta-headline em{font-style:italic;color:var(--gold-lt);}
+.audit-cta-sub{font-size:14px;color:rgba(255,255,255,0.5);font-weight:300;line-height:1.7;max-width:540px;}
 
-  /* ── ANIMATIONS ── */
-  .fade-up { opacity: 1; transform: none; }
-  @media (min-width: 769px) {
-    .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
-    .fade-up.visible { opacity: 1; transform: none; }
-  }
+/* ── CAMPAIGN RESPONSE ── */
+#campaign{background:var(--cream);padding:100px 0;}
+.campaign-inner{max-width:1200px;margin:0 auto;padding:0 52px;}
+.campaign-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;}
+.campaign-body{font-size:15px;line-height:1.85;color:var(--slate);font-weight:300;margin-top:20px;}
+.campaign-body p+p{margin-top:16px;}
+.campaign-body strong{color:var(--navy);font-weight:500;}
+.timeline{display:flex;flex-direction:column;gap:0;margin-top:32px;}
+.timeline-item{display:grid;grid-template-columns:80px 1fr;gap:20px;padding:20px 0;border-bottom:1px solid rgba(11,25,41,0.08);}
+.timeline-item:last-child{border-bottom:none;}
+.timeline-time{font-family:var(--f-display);font-size:13px;font-weight:500;color:var(--gold);letter-spacing:0.06em;}
+.timeline-content-title{font-size:13.5px;font-weight:600;color:var(--navy);margin-bottom:5px;}
+.timeline-content-body{font-size:13px;color:var(--slate);line-height:1.65;font-weight:300;}
+.campaign-right-title{font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--navy);margin-bottom:20px;}
+.campaign-features{display:flex;flex-direction:column;gap:16px;}
+.campaign-feature{display:flex;gap:16px;align-items:flex-start;padding:20px;background:var(--white);}
+.campaign-feature-icon{width:36px;height:36px;background:rgba(184,146,74,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;}
+.campaign-feature-title{font-size:13.5px;font-weight:600;color:var(--navy);margin-bottom:4px;}
+.campaign-feature-body{font-size:13px;color:var(--slate);line-height:1.65;font-weight:300;}
 
-  /* ── MOBILE RESPONSIVE ── */
-  @media (max-width: 768px) {
+/* ── CASE STUDIES ── */
+#cases{background:var(--navy);padding:100px 0;}
+.cases-inner{max-width:1200px;margin:0 auto;padding:0 52px;}
+.cases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:48px;}
+.case-card{background:rgba(255,255,255,0.04);padding:36px 28px;border-top:2px solid rgba(184,146,74,0.2);transition:background 0.2s,border-color 0.2s;}
+.case-card:hover{background:rgba(255,255,255,0.07);border-top-color:var(--gold);}
+.case-industry{font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:14px;}
+.case-situation{font-family:var(--f-display);font-size:19px;font-weight:400;color:#FFFFFF;line-height:1.3;margin-bottom:16px;}
+.case-what{font-size:13px;color:rgba(255,255,255,0.5);line-height:1.7;font-weight:300;margin-bottom:20px;}
+.case-outcome-label{font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:8px;font-weight:500;}
+.case-outcome{font-size:13.5px;color:rgba(255,255,255,0.8);line-height:1.6;font-weight:300;}
+.case-outcome strong{color:#4AC49A;font-weight:500;}
 
-    /* Nav */
-    nav {
-      padding: 0 20px;
-      height: 60px;
-    }
-    .nav-logo-top { font-size: 14px; }
-    .nav-logo-sub { font-size: 8px; letter-spacing: 0.14em; }
-    .nav-links {
-      display: none; /* Hidden on mobile — hamburger would go here in prod */
-    }
-    /* Show only the CTA button on mobile */
-    .nav-links-mobile-cta {
-      display: flex !important;
-    }
+/* ── TEAM ── */
+#team{background:var(--white);padding:100px 0;}
+.team-inner{max-width:1200px;margin:0 auto;padding:0 52px;}
+.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;margin-top:48px;}
+.team-body{font-size:15px;line-height:1.85;color:var(--slate);font-weight:300;}
+.team-body p+p{margin-top:16px;}
+.team-body strong{color:var(--navy);font-weight:500;}
+.team-creds{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px;}
+.team-cred{border:1px solid rgba(11,25,41,0.15);padding:7px 14px;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--navy);font-weight:400;}
+.team-quote-box{background:var(--navy);padding:44px 40px;position:relative;}
+.team-quote-mark{position:absolute;top:16px;left:36px;font-family:var(--f-display);font-size:100px;line-height:1;color:rgba(184,146,74,0.12);pointer-events:none;}
+.team-quote{font-family:var(--f-display);font-size:20px;font-weight:300;font-style:italic;color:rgba(255,255,255,0.85);line-height:1.65;margin-bottom:24px;position:relative;z-index:1;}
+.team-quote-attr{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:12px;}
+.team-quote-attr::before{content:'';display:block;width:20px;height:1px;background:var(--gold);}
 
-    /* Hero */
-    #hero {
-      grid-template-columns: 1fr;
-      min-height: auto;
-      padding-bottom: 0;
-    }
-    .hero-divider { display: none; }
-    .hero-left {
-      padding: 100px 24px 48px;
-    }
-    .hero-headline {
-      font-size: 38px;
-      line-height: 1.15;
-    }
-    .hero-sub {
-      font-size: 15px;
-      margin-bottom: 36px;
-    }
-    .hero-actions {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 20px;
-    }
-    .btn-primary {
-      width: 100%;
-      text-align: center;
-      padding: 16px 24px;
-      font-size: 11px;
-    }
-    .hero-micro { font-size: 10px; }
-    .hero-right {
-      padding: 0 24px 56px;
-      justify-content: flex-start;
-    }
-    .hero-card-cluster {
-      flex-direction: row;
-      flex-wrap: wrap;
-      gap: 12px;
-      max-width: 100%;
-    }
-    .hero-stat-card {
-      flex: 1 1 calc(50% - 6px);
-      min-width: 130px;
-      padding: 20px 18px;
-      margin-left: 0 !important;
-    }
-    .stat-num { font-size: 36px; }
-    .stat-label { font-size: 10px; }
-    .hero-scroll-hint { display: none; }
+/* ── SERVICES ── */
+#services{background:var(--cream);padding:100px 0;}
+.services-inner{max-width:1200px;margin:0 auto;padding:0 52px;}
+.services-header{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:48px;}
+.services-intro{font-size:15px;color:var(--slate);line-height:1.8;font-weight:300;margin-top:16px;}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.service-card{background:var(--white);padding:36px 28px;border-top:2px solid transparent;transition:border-color 0.3s,transform 0.2s;}
+.service-card:hover{border-top-color:var(--gold);transform:translateY(-2px);}
+.service-icon{font-size:28px;margin-bottom:18px;}
+.service-title{font-family:var(--f-display);font-size:21px;font-weight:400;color:var(--navy);margin-bottom:12px;line-height:1.2;}
+.service-body{font-size:13.5px;color:var(--slate);line-height:1.75;font-weight:300;margin-bottom:20px;}
+.service-link{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);font-weight:600;display:flex;align-items:center;gap:6px;transition:gap 0.2s;}
+.service-link:hover{gap:12px;}
 
-    /* Section shared */
-    .section-inner { padding: 0 24px; }
+/* ── INTAKE CTA ── */
+#intake{background:var(--navy);padding:100px 0;position:relative;overflow:hidden;}
+#intake::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 80% 50%,rgba(184,146,74,0.07) 0%,transparent 70%);pointer-events:none;}
+.intake-inner{max-width:1200px;margin:0 auto;padding:0 52px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;position:relative;z-index:1;}
+.intake-headline{font-family:var(--f-display);font-size:clamp(32px,3vw,46px);font-weight:300;color:#FFFFFF;line-height:1.2;margin-bottom:18px;}
+.intake-headline em{font-style:italic;color:var(--gold-lt);}
+.intake-sub{font-size:15px;color:rgba(255,255,255,0.55);line-height:1.8;font-weight:300;margin-bottom:32px;}
+.intake-channels{display:flex;flex-direction:column;gap:14px;}
+.intake-channel{display:flex;align-items:center;gap:16px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);padding:16px 20px;transition:background 0.2s;}
+.intake-channel:hover{background:rgba(255,255,255,0.09);}
+.intake-channel-icon{font-size:20px;flex-shrink:0;}
+.intake-channel-label{font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.4);font-weight:500;margin-bottom:2px;}
+.intake-channel-value{font-size:14px;font-weight:600;color:#FFFFFF;}
+.intake-channel-value a{color:var(--gold);}
+.intake-channel-sub{font-size:11px;color:rgba(255,255,255,0.35);margin-top:2px;}
+.intake-form-box{background:rgba(255,255,255,0.04);border:1px solid rgba(184,146,74,0.2);padding:40px 36px;}
+.intake-form-title{font-family:var(--f-display);font-size:22px;font-weight:500;color:#FFFFFF;margin-bottom:6px;}
+.intake-form-sub{font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:28px;letter-spacing:0.04em;}
 
-    /* Problem */
-    #problem { padding: 72px 0; }
-    .problem-grid {
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
-    .section-headline { font-size: 30px; }
-    .problem-body { font-size: 15px; }
-    .problem-pull { margin-top: 8px; }
-    .problem-pull-quote { font-size: 20px; }
+/* ── FOOTER ── */
+footer{background:#07111C;padding:56px 0 32px;border-top:1px solid rgba(184,146,74,0.12);}
+.footer-inner{max-width:1200px;margin:0 auto;padding:0 52px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:52px;}
+.footer-brand-name{font-family:var(--f-display);font-size:17px;font-weight:500;letter-spacing:0.05em;color:#FFFFFF;margin-bottom:4px;}
+.footer-brand-sub{font-size:8.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+.footer-tagline{font-size:13px;line-height:1.7;color:rgba(255,255,255,0.3);font-weight:300;max-width:240px;}
+.footer-col-title{font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:18px;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.footer-col ul a{font-size:13px;color:rgba(255,255,255,0.38);transition:color 0.2s;}
+.footer-col ul a:hover{color:rgba(255,255,255,0.75);}
+.footer-bottom{max-width:1200px;margin:44px auto 0;padding:20px 52px 0;border-top:1px solid rgba(255,255,255,0.05);display:flex;justify-content:space-between;align-items:center;}
+.footer-copy{font-size:11px;color:rgba(255,255,255,0.2);}
+.footer-legal{display:flex;gap:20px;}
+.footer-legal a{font-size:11px;color:rgba(255,255,255,0.2);transition:color 0.2s;}
+.footer-legal a:hover{color:rgba(255,255,255,0.45);}
 
-    /* Difference */
-    #difference { padding: 72px 0; }
-    .diff-intro {
-      grid-template-columns: 1fr;
-      gap: 32px;
-      margin-bottom: 48px;
-    }
-    .section-headline.light { font-size: 30px; }
-    .diff-body { font-size: 15px; margin-top: 20px; }
-    .diff-pillars {
-      grid-template-columns: 1fr;
-      gap: 0;
-    }
-    .pillar {
-      border-right: none;
-      border-bottom: 1px solid rgba(184,146,74,0.14);
-      padding: 32px 24px;
-    }
-    .pillar:last-child { border-bottom: none; }
-    .pillar-num { font-size: 40px; }
-
-    /* Insider */
-    #insider { padding: 72px 0; }
-    .insider-grid {
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
-    .insider-right { padding: 36px 28px; }
-    .insider-right::before { font-size: 80px; top: 10px; left: 24px; }
-    .insider-quote { font-size: 18px; }
-
-    /* Services */
-    #services { padding: 72px 0; }
-    .services-header {
-      grid-template-columns: 1fr;
-      gap: 24px;
-      margin-bottom: 40px;
-    }
-    .services-grid {
-      grid-template-columns: 1fr;
-      gap: 2px;
-    }
-    .service-card { padding: 32px 24px; }
-
-    /* CTA */
-    #cta { padding: 72px 0; }
-    .cta-inner {
-      grid-template-columns: 1fr;
-      gap: 48px;
-    }
-    .cta-headline { font-size: 32px; }
-    .cta-sub { font-size: 14px; }
-    .cta-trust-row { gap: 16px; }
-    .trust-item { font-size: 11px; }
-    .cta-box { padding: 32px 24px; }
-    .cta-box-headline { font-size: 22px; }
-
-    /* Footer */
-    .footer-inner {
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      padding: 0 24px;
-    }
-    .footer-inner > div:first-child {
-      grid-column: 1 / -1;
-    }
-    .footer-bottom {
-      flex-direction: column;
-      gap: 12px;
-      text-align: center;
-      padding: 20px 24px 0;
-    }
-    .footer-legal { justify-content: center; }
-    .insider-credential-row { gap: 8px; }
-    .cred-chip { font-size: 9.5px; padding: 6px 12px; }
-  }
-
-  @media (max-width: 400px) {
-    .hero-headline { font-size: 32px; }
-    .hero-stat-card { flex: 1 1 100%; }
-    .footer-inner { grid-template-columns: 1fr; }
-  }
+/* ── MOBILE ── */
+@media(max-width:900px){
+  nav{padding:0 20px;height:62px;}
+  .nav-links,.nav-phone{display:none;}
+  .nav-mobile-cta{display:block;}
+  #hero{padding:100px 0 60px;}
+  .hero-inner{grid-template-columns:1fr;gap:40px;padding:0 24px;}
+  .hero-cta-group{flex-direction:column;}
+  .btn-primary,.btn-ghost{width:100%;text-align:center;}
+  .proof-inner{padding:0 24px;gap:10px;}
+  .proof-divider{display:none;}
+  #situation{padding:60px 0;}
+  .situation-inner{padding:0 24px;}
+  .situation-grid{grid-template-columns:1fr;gap:2px;}
+  #next{padding:60px 0;}
+  .next-inner{padding:0 24px;}
+  .next-steps{grid-template-columns:1fr 1fr;gap:32px;}
+  .next-steps::before{display:none;}
+  #vulnerability{padding:72px 0;}
+  .vuln-inner{padding:0 24px;}
+  .vuln-intro{grid-template-columns:1fr;gap:32px;}
+  .warning-band{padding:28px 24px;}
+  .warning-grid{grid-template-columns:1fr 1fr;gap:20px;}
+  .cost-stats{grid-template-columns:1fr;}
+  .cost-stat{border-right:none;border-bottom:1px solid rgba(11,25,41,0.08);}
+  .db-metrics{grid-template-columns:1fr 1fr;}
+  .db-body{grid-template-columns:1fr;}
+  .db-right{border-left:none;border-top:1px solid rgba(255,255,255,0.05);}
+  .db-score-row{grid-template-columns:110px 1fr 50px;gap:8px;}
+  .db-queue{grid-template-columns:1fr 1fr;}
+  .six-dims-grid{grid-template-columns:1fr;}
+  .audit-cta{grid-template-columns:1fr;gap:28px;padding:32px 24px;}
+  #campaign{padding:72px 0;}
+  .campaign-inner{padding:0 24px;}
+  .campaign-grid{grid-template-columns:1fr;gap:48px;}
+  #cases{padding:72px 0;}
+  .cases-inner{padding:0 24px;}
+  .cases-grid{grid-template-columns:1fr;}
+  #team{padding:72px 0;}
+  .team-inner{padding:0 24px;}
+  .team-grid{grid-template-columns:1fr;gap:40px;}
+  #services{padding:72px 0;}
+  .services-inner{padding:0 24px;}
+  .services-header{grid-template-columns:1fr;gap:20px;}
+  .services-grid{grid-template-columns:1fr;}
+  #intake{padding:72px 0;}
+  .intake-inner{grid-template-columns:1fr;gap:48px;padding:0 24px;}
+  .footer-inner{grid-template-columns:1fr 1fr;gap:36px;padding:0 24px;}
+  .footer-inner>div:first-child{grid-column:1/-1;}
+  .footer-bottom{flex-direction:column;gap:12px;text-align:center;padding:20px 24px 0;}
+  .footer-legal{justify-content:center;}
+}
+@media(max-width:480px){
+  .next-steps{grid-template-columns:1fr;}
+  .warning-grid{grid-template-columns:1fr;}
+  .db-metrics{grid-template-columns:1fr;}
+  .footer-inner{grid-template-columns:1fr;}
+}
 </style>
 </head>
 <body>
@@ -746,161 +409,536 @@
 <!-- NAV -->
 <nav>
   <div class="nav-logo">
-    <span class="nav-logo-top">International Labor Relations</span>
+    <span class="nav-logo-name">International Labor Relations</span>
     <span class="nav-logo-sub">Labor Strategy &amp; Advisory</span>
   </div>
   <ul class="nav-links">
-    <li><a href="#">Services</a></li>
-    <li><a href="#">Our Approach</a></li>
-    <li><a href="#">About</a></li>
-    <li><a href="#">Insights</a></li>
-    <li><a href="#cta" class="nav-cta">Free Consultation</a></li>
+    <li><a href="#situation">Your Situation</a></li>
+    <li><a href="#vulnerability">Vulnerability Audit</a></li>
+    <li><a href="#campaign">Campaign Response</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#team">About</a></li>
   </ul>
-  <a href="#cta" class="nav-cta nav-mobile-cta" style="display:none;font-size:10px;padding:8px 16px;letter-spacing:0.1em;color:#B8924A !important;border-color:#B8924A;text-decoration:none;">Consult Free →</a>
+  <div class="nav-phone">Active campaign? Call now: <a href="tel:2123350339">(212) 335-0339</a></div>
+  <a href="#intake" class="nav-cta">Confidential Review</a>
+  <a href="tel:2123350339" class="nav-mobile-cta">Call Now</a>
 </nav>
-<style>
-@media (max-width: 768px) {
-  .nav-mobile-cta { display:block !important; }
-}
-</style>
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-bg-texture"></div>
-  <div class="hero-divider"></div>
-
-  <div class="hero-left">
-    <div class="hero-eyebrow">
-      <div class="hero-eyebrow-line"></div>
-      <span class="hero-eyebrow-text">International Labor Relations</span>
-    </div>
-    <h1 class="hero-headline">
-      The Firm That Solves<br>
-      What Others Only<br>
-      <em>Respond To.</em>
-    </h1>
-    <p class="hero-sub">
-      We combine elite labor expertise with operational analysis to address the root causes of workforce dissatisfaction — before they become a campaign. When a petition has been filed, we're also the team you want in your corner.
-    </p>
-    <div class="hero-actions">
-      <a href="#cta" class="btn-primary">Schedule a Free Consultation</a>
-      <a href="#difference" class="btn-ghost-text">Our Approach</a>
-    </div>
-    <p class="hero-micro">No obligation &nbsp;·&nbsp; Strictly confidential &nbsp;·&nbsp; Available within 24 hours</p>
-  </div>
-
-  <div class="hero-right">
-    <div class="hero-card-cluster">
-      <div class="hero-stat-card">
-        <div class="stat-num">200<span style="font-size:28px">+</span></div>
-        <div class="stat-label">NLRB Elections Advised</div>
+  <div class="hero-bg-grid"></div>
+  <div class="hero-bg-glow"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-line"></div>
+        <span class="hero-eyebrow-text">International Labor Relations</span>
       </div>
-      <div class="hero-stat-card">
-        <div class="stat-num">50<span style="font-size:28px">+</span></div>
-        <div class="stat-label">Years Collective Experience</div>
+      <h1 class="hero-headline">Know your labor risk<br>before a petition<br><em>is filed.</em></h1>
+      <p class="hero-sub">Confidential labor-relations assessments, campaign response, and workforce-risk strategy for employers facing <strong>organizing activity, NLRB filings,</strong> or rising employee dissatisfaction.</p>
+      <div class="hero-cta-group">
+        <a href="#intake" class="btn-primary">Request a Confidential Risk Review →</a>
+        <a href="#situation" class="btn-ghost">Find Your Situation Below</a>
       </div>
-      <div class="hero-stat-card">
-        <div class="stat-num">All&#8209;50</div>
-        <div class="stat-label">States — National Coverage</div>
+      <div class="hero-direct">
+        <span>Active campaign or petition filed?</span>
+        <a href="tel:2123350339">Call (212) 335-0339 now</a>
       </div>
     </div>
-  </div>
-
-  <div class="hero-scroll-hint">
-    <div class="scroll-line"></div>
-    <span>Scroll</span>
+    <div class="hero-form-box">
+      <div class="hero-form-title">Confidential Intake</div>
+      <div class="hero-form-sub">Reviewed by senior labor-relations advisors. All inquiries strictly confidential.</div>
+      <div class="form-row">
+        <label class="form-label">Name</label>
+        <input type="text" class="form-input" placeholder="Your name">
+      </div>
+      <div class="form-row">
+        <label class="form-label">Company</label>
+        <input type="text" class="form-input" placeholder="Company name">
+      </div>
+      <div class="form-row">
+        <label class="form-label">Your Role</label>
+        <select class="form-select">
+          <option value="">Select your role</option>
+          <option>CEO / President</option>
+          <option>COO / Operations</option>
+          <option>CHRO / HR Leader</option>
+          <option>General Counsel</option>
+          <option>Private Equity / Investor</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label class="form-label">Current Situation</label>
+        <select class="form-select">
+          <option value="">What's happening?</option>
+          <option>No petition yet — early warning signs</option>
+          <option>Organizer activity suspected or confirmed</option>
+          <option>Petition filed with NLRB</option>
+          <option>Election scheduled</option>
+          <option>ULP charge filed</option>
+          <option>Already unionized / bargaining upcoming</option>
+          <option>Proactive — want a vulnerability assessment</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-input" placeholder="Your work email">
+      </div>
+      <div class="form-row">
+        <label class="form-label">Phone</label>
+        <input type="tel" class="form-input" placeholder="Best number to reach you">
+      </div>
+      <div class="form-row">
+        <label class="form-label">How urgent?</label>
+        <select class="form-select">
+          <option value="">Select urgency</option>
+          <option>Immediate — need help now</option>
+          <option>This week</option>
+          <option>Planning ahead</option>
+        </select>
+      </div>
+      <div class="form-privacy"><strong>🔒 All inquiries are strictly confidential.</strong> Reviewed by senior advisors only. We will never share your information.</div>
+      <button class="btn-form-submit" onclick="alert('Thank you. A senior advisor will contact you within 24 hours.')">Submit Confidentially →</button>
+    </div>
   </div>
 </section>
 
-<!-- PROBLEM -->
-<section id="problem">
-  <div class="section-inner">
-    <div class="problem-grid fade-up">
+<!-- PROOF BAR -->
+<div id="proof">
+  <div class="proof-inner">
+    <div class="proof-item"><div class="proof-dot"></div><span class="proof-text">200+ NLRB Elections Advised</span></div>
+    <div class="proof-divider"></div>
+    <div class="proof-item"><div class="proof-dot"></div><span class="proof-text">50+ Years Collective Experience</span></div>
+    <div class="proof-divider"></div>
+    <div class="proof-item"><div class="proof-dot"></div><span class="proof-text">Former Union Officials on Staff</span></div>
+    <div class="proof-divider"></div>
+    <div class="proof-item"><div class="proof-dot"></div><span class="proof-text">NLRB Veterans</span></div>
+    <div class="proof-divider"></div>
+    <div class="proof-item"><div class="proof-dot"></div><span class="proof-text">Labor Attorneys</span></div>
+    <div class="proof-divider"></div>
+    <div class="proof-item"><div class="proof-dot"></div><span class="proof-text">National Deployment — All 50 States</span></div>
+    <div class="proof-divider"></div>
+    <div class="proof-item"><div class="proof-dot"></div><span class="proof-text">24-Hour Response for Active Campaigns</span></div>
+  </div>
+</div>
+
+<!-- SITUATION SPLIT -->
+<section id="situation">
+  <div class="situation-inner">
+    <div class="situation-label">
+      <div class="situation-label-line"></div>
+      <span class="situation-label-text">Choose Your Situation</span>
+    </div>
+    <h2 class="situation-headline">Every labor challenge is <em>different.</em><br>Tell us where you are.</h2>
+    <p class="situation-sub">The right strategy depends entirely on your timeline. Select the situation that matches yours and we'll show you exactly how we help.</p>
+    <div class="situation-grid">
+      <div class="situation-card urgent">
+        <div class="sit-badge red"><div class="sit-badge-dot red"></div>Urgent</div>
+        <h3 class="sit-title">A petition has been filed or election is pending.</h3>
+        <p class="sit-body">You're on the NLRB's timeline now. Every hour matters. You need experienced campaign counsel immediately — not after the weekend.</p>
+        <div class="sit-triggers">
+          <div class="sit-trigger"><span class="sit-trigger-arrow">→</span>NLRB petition received</div>
+          <div class="sit-trigger"><span class="sit-trigger-arrow">→</span>Election date scheduled</div>
+          <div class="sit-trigger"><span class="sit-trigger-arrow">→</span>ULP charge filed against you</div>
+          <div class="sit-trigger"><span class="sit-trigger-arrow">→</span>Cards circulating on the floor</div>
+        </div>
+        <a href="tel:2123350339" class="sit-cta red">Call (212) 335-0339 Now →</a>
+      </div>
+      <div class="situation-card warning">
+        <div class="sit-badge amber"><div class="sit-badge-dot amber"></div>Early Warning</div>
+        <h3 class="sit-title">No petition yet — but something is changing.</h3>
+        <p class="sit-body">You're sensing dissatisfaction. Turnover is up. Conversations have shifted. You don't have a campaign yet, but you may have the conditions that create one.</p>
+        <div class="sit-triggers">
+          <div class="sit-trigger"><span class="sit-trigger-arrow">→</span>Unusual employee clustering or conversations</div>
+          <div class="sit-trigger"><span class="sit-trigger-arrow">→</span>Increased grievances or HR complaints</div>
+          <div class="sit-trigger"><span class="sit-trigger-arrow">→</span>Outside organizer contact reported</div>
+          <div class="sit-trigger"><span class="sit-trigger-arrow">→</span>Key supervisor relationships fraying</div>
+        </div>
+        <a href="#intake" class="sit-cta amber">Request a Vulnerability Assessment →</a>
+      </div>
+      <div class="situation-card strategic">
+        <div class="sit-badge blue"><div class="sit-badge-dot blue"></div>Strategic</div>
+        <h3 class="sit-title">Already unionized or bargaining is coming up.</h3>
+        <p class="sit-body">You need experienced negotiators at the table who understand what the union wants, what they'll accept, and what your operational red lines need to be.</p>
+        <div class="sit-triggers">
+          <div class="sit-trigger"><span class="sit-trigger-arrow">→</span>First contract negotiations beginning</div>
+          <div class="sit-trigger"><span class="sit-trigger-arrow">→</span>Contract renewal approaching</div>
+          <div class="sit-trigger"><span class="sit-trigger-arrow">→</span>Grievance arbitration exposure</div>
+          <div class="sit-trigger"><span class="sit-trigger-arrow">→</span>Multi-location bargaining complexity</div>
+        </div>
+        <a href="#intake" class="sit-cta blue">Discuss Negotiation Strategy →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT HAPPENS NEXT -->
+<section id="next">
+  <div class="next-inner">
+    <div class="next-header">
+      <div class="section-label-light">
+        <div class="section-label-light-line"></div>
+        <span class="section-label-light-text">What to Expect</span>
+        <div class="section-label-light-line"></div>
+      </div>
+      <h2 class="section-headline-light">What happens after<br>you <em>reach out.</em></h2>
+    </div>
+    <div class="next-steps">
+      <div class="next-step">
+        <div class="next-step-num"><span class="next-step-num-inner">1</span></div>
+        <div class="next-step-title">Confidential Intake</div>
+        <div class="next-step-body">A senior advisor reviews your situation, timeline, workforce size, and locations. No sales pressure. No obligation.</div>
+      </div>
+      <div class="next-step">
+        <div class="next-step-num"><span class="next-step-num-inner">2</span></div>
+        <div class="next-step-title">Risk Readout</div>
+        <div class="next-step-body">We identify the likely labor-relations risks specific to your situation and outline your most important immediate next steps.</div>
+      </div>
+      <div class="next-step">
+        <div class="next-step-num"><span class="next-step-num-inner">3</span></div>
+        <div class="next-step-title">Action Plan</div>
+        <div class="next-step-body">If further help is warranted, we outline scope, timing, deliverables, and cost — clearly, before any engagement begins.</div>
+      </div>
+      <div class="next-step">
+        <div class="next-step-num"><span class="next-step-num-inner">4</span></div>
+        <div class="next-step-title">Deployment</div>
+        <div class="next-step-body">For active matters, senior advisors deploy quickly. For prevention work, we build the program around your specific workforce and risk profile.</div>
+      </div>
+    </div>
+    <div class="next-reassurance">
+      <p class="next-reassurance-text"><strong>This is not a sales call.</strong> Our initial conversation is a genuine assessment of your situation by people who have been inside hundreds of labor matters. You'll leave with more clarity than you arrived with — regardless of whether you engage us further.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VULNERABILITY AUDIT -->
+<section id="vulnerability">
+  <div class="vuln-inner">
+    <div class="vuln-intro">
       <div>
         <div class="section-label">
           <div class="section-label-line"></div>
-          <span class="section-label-text">The Reality</span>
+          <span class="section-label-text">SentimentIQ™ Vulnerability Audit</span>
         </div>
-        <h2 class="section-headline">By the time you<br>see the signs, the<br><em>campaign has already started.</em></h2>
-        <div class="problem-body">
-          <p>Union organizing doesn't begin with a card drive. It begins months — sometimes years — earlier, in the unresolved friction between employees and the organization they work for. Unanswered compensation questions. Leadership gaps on the frontline. Communication that flows only one direction.</p>
-          <p>Most companies engage outside help after an election petition is filed. At that point, you're playing defense on someone else's timeline, and the cost — operational, financial, and cultural — is already accumulating.</p>
-          <p><strong>We engage earlier. We go deeper. And we fix what's actually driving dissatisfaction.</strong></p>
+        <h2 class="section-headline">Your organization is<br>sending signals.<br><em>Are you reading them?</em></h2>
+        <div class="vuln-body">
+          <p>Most companies discover they have a labor problem when a petition lands on their desk. By then, the campaign has been running for months. Informal leaders have been identified. The narrative has been set.</p>
+          <p>Our <strong>SentimentIQ™ Vulnerability Audit</strong> gives leadership a complete picture of workforce sentiment, department-level risk, and the operational conditions driving dissatisfaction — lawfully, confidentially, and before any of that happens.</p>
+        </div>
+        <div class="vuln-callout">
+          <div class="vuln-callout-quote">"By the time you see the signs, the campaign has already started."</div>
+          <div class="vuln-callout-attr">— ILR Advisory Principle</div>
         </div>
       </div>
-      <div class="problem-pull fade-up">
-        <p class="problem-pull-quote">"The most expensive labor crisis is the one you could have prevented three years ago."</p>
-        <span class="problem-pull-attr">— ILR Advisory Principle</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- DIFFERENCE -->
-<section id="difference">
-  <div class="section-inner">
-    <div class="diff-intro fade-up">
       <div>
-        <div class="section-label">
-          <div class="section-label-line"></div>
-          <span class="section-label-text">Our Approach</span>
+        <div class="campaign-right-title">Early Warning Indicators</div>
+        <div class="cost-stats" style="grid-template-columns:1fr;margin-bottom:0;">
+          <div class="cost-stat" style="border-right:none;border-bottom:1px solid rgba(11,25,41,0.08);text-align:left;padding:20px 24px;">
+            <div class="cost-stat-label" style="margin-bottom:5px;text-align:left;">⚖ Legal Activity</div>
+            <div class="cost-stat-body">ULP charges filed with the NLRB — even unfounded ones — signal organized, coached activity. This is rarely a first step; it means a campaign is already structured.</div>
+          </div>
+          <div class="cost-stat" style="border-right:none;border-bottom:1px solid rgba(11,25,41,0.08);text-align:left;padding:20px 24px;">
+            <div class="cost-stat-label" style="margin-bottom:5px;text-align:left;">👥 Workforce Behavior</div>
+            <div class="cost-stat-body">Unusual employee clustering, shift changes in communication patterns, sudden solidarity on grievances that were previously individual complaints.</div>
+          </div>
+          <div class="cost-stat" style="border-right:none;border-bottom:1px solid rgba(11,25,41,0.08);text-align:left;padding:20px 24px;">
+            <div class="cost-stat-label" style="margin-bottom:5px;text-align:left;">📊 Turnover Spikes</div>
+            <div class="cost-stat-body">Sudden increases in voluntary departures — particularly among supervisors or long-tenured employees — are a leading indicator of broader, organized dissatisfaction.</div>
+          </div>
+          <div class="cost-stat" style="border-right:none;text-align:left;padding:20px 24px;">
+            <div class="cost-stat-label" style="margin-bottom:5px;text-align:left;">📡 External Contact</div>
+            <div class="cost-stat-body">Union organizers approaching employees off-property. Social media activity. Employees asking unusual questions about NLRA rights or the petition process.</div>
+          </div>
         </div>
-        <h2 class="section-headline light">We don't just manage<br>labor risk.<br><em>We diagnose it.</em></h2>
-      </div>
-      <div class="diff-body">
-        <p>Traditional labor consultants focus on response — legal strategy, campaign messaging, election mechanics. We start earlier and go deeper.</p>
-        <p>Our team combines decades of labor relations expertise with rigorous <strong>operational analysis</strong>. We examine the actual conditions in your workplace: management effectiveness, compensation equity, communication practices, frontline culture. We identify what drives dissatisfaction before it becomes organizing activity.</p>
-        <p>The result isn't just a won election — it's a workplace where employees have less reason to seek outside representation in the first place. <strong>A direct relationship between management and workforce, without a third party that profits from their adversarial dynamic.</strong></p>
       </div>
     </div>
 
-    <div class="diff-pillars fade-up">
-      <div class="pillar">
-        <div class="pillar-num">01</div>
-        <div class="pillar-title">Diagnose</div>
-        <div class="pillar-body">Operational and cultural assessment to identify vulnerability before it surfaces. We go where others don't — onto the floor, into the data, and into the management practices that shape daily employee experience.</div>
+    <!-- Cost of Inaction -->
+    <div class="cost-stats">
+      <div class="cost-stat">
+        <div class="cost-stat-num">30<span style="font-size:28px;">%</span></div>
+        <div class="cost-stat-label">Valuation Impact</div>
+        <div class="cost-stat-body">Companies that become unionized can lose up to 30% of enterprise valuation — a direct result of constrained operational flexibility and increased labor costs.</div>
       </div>
-      <div class="pillar">
-        <div class="pillar-num">02</div>
-        <div class="pillar-title">Strategize</div>
-        <div class="pillar-body">Tailored programs built around your specific workforce, industry, and risk profile. No templates. No standard playbooks. Every engagement begins with what's actually happening in your organization.</div>
+      <div class="cost-stat">
+        <div class="cost-stat-num">$2M<span style="font-size:28px;">+</span></div>
+        <div class="cost-stat-label">Campaign Defense Cost</div>
+        <div class="cost-stat-body">The fully-loaded cost of defending an active organizing campaign — legal fees, consultant fees, lost productivity, management time — routinely exceeds $2 million.</div>
       </div>
-      <div class="pillar">
-        <div class="pillar-num">03</div>
-        <div class="pillar-title">Execute</div>
-        <div class="pillar-body">On-the-ground support, supervisor training, workforce communications, and direct campaign response when the stakes are highest. We are present, responsive, and effective at every stage.</div>
+      <div class="cost-stat">
+        <div class="cost-stat-num">18<span style="font-size:28px;">mo</span></div>
+        <div class="cost-stat-label">Average Lead Time</div>
+        <div class="cost-stat-body">Organizing campaigns typically begin 12–18 months before a petition is filed. That's your window. An audit identifies the problem while you still have time to act.</div>
+      </div>
+    </div>
+
+    <!-- Dashboard -->
+    <div class="dashboard-wrap">
+      <div class="db-header">
+        <div>
+          <div class="db-title">SentimentIQ™ — Workforce Risk Assessment</div>
+          <div class="db-badge" style="margin-top:5px;display:inline-block;">⚠ Internal Use Only — Labor Consulting Confidential</div>
+        </div>
+        <div class="db-note">Sample output — for illustration purposes</div>
+      </div>
+      <div class="db-metrics">
+        <div class="db-metric">
+          <div class="db-metric-label">Total Workforce Assessed</div>
+          <div class="db-metric-val white">264</div>
+          <div class="db-metric-sub">Employees across all departments</div>
+        </div>
+        <div class="db-metric">
+          <div class="db-metric-label">Avg. Management Score</div>
+          <div class="db-metric-val red">2.76</div>
+          <div class="db-metric-sub">Out of 5.0 — Critical range</div>
+        </div>
+        <div class="db-metric">
+          <div class="db-metric-label">Pro-Organizing Sentiment</div>
+          <div class="db-metric-val amber">68.2%</div>
+          <div class="db-metric-sub">Of total workforce assessed</div>
+        </div>
+        <div class="db-metric">
+          <div class="db-metric-label">Elevated-Risk Employees</div>
+          <div class="db-metric-val red">60</div>
+          <div class="db-metric-sub">Require immediate strategic attention</div>
+        </div>
+      </div>
+      <div class="db-body">
+        <div class="db-scores">
+          <div class="db-scores-label">Avg. Scores by Category &nbsp;·&nbsp; 1 = Very Negative &nbsp;|&nbsp; 5 = Very Positive</div>
+          <div class="db-score-row">
+            <div class="db-score-name">Management</div>
+            <div class="db-bar-track"><div class="db-bar-fill red" style="width:55%;"></div></div>
+            <div class="db-score-val red">2.76 ⚠</div>
+          </div>
+          <div class="db-score-row">
+            <div class="db-score-name">Organizing Propensity</div>
+            <div class="db-bar-track"><div class="db-bar-fill amber" style="width:64%;"></div></div>
+            <div class="db-score-val amber">3.18 ⚠</div>
+          </div>
+          <div class="db-score-row">
+            <div class="db-score-name">Pay &amp; Benefits</div>
+            <div class="db-bar-track"><div class="db-bar-fill green" style="width:83%;"></div></div>
+            <div class="db-score-val green">4.14</div>
+          </div>
+          <div class="db-score-row">
+            <div class="db-score-name">Communication</div>
+            <div class="db-bar-track"><div class="db-bar-fill green" style="width:75%;"></div></div>
+            <div class="db-score-val green">3.75</div>
+          </div>
+          <div class="db-score-row">
+            <div class="db-score-name">Safety / Conditions</div>
+            <div class="db-bar-track"><div class="db-bar-fill amber" style="width:63%;"></div></div>
+            <div class="db-score-val amber">3.14 ⚠</div>
+          </div>
+          <div class="db-score-row">
+            <div class="db-score-name">Work Experience</div>
+            <div class="db-bar-track"><div class="db-bar-fill amber" style="width:59%;"></div></div>
+            <div class="db-score-val amber">2.95 ⚠</div>
+          </div>
+        </div>
+        <div class="db-right">
+          <div class="db-dist-label">Workforce Disposition Distribution — 264 Employees</div>
+          <div class="db-dist-bar">
+            <div class="db-dist-seg" style="width:13.6%;background:#1B6B5A;">36</div>
+            <div class="db-dist-seg" style="width:18.2%;background:#3A7A6A;">48</div>
+            <div class="db-dist-seg" style="width:27.3%;background:#6A7A72;">72</div>
+            <div class="db-dist-seg" style="width:18.2%;background:#C0732B;">48</div>
+            <div class="db-dist-seg" style="width:22.7%;background:#C0392B;">60</div>
+          </div>
+          <div class="db-dist-legend">
+            <div class="db-dist-legend-item"><div class="db-dist-legend-dot" style="background:#1B6B5A;"></div>Strongly Company-Leaning (36)</div>
+            <div class="db-dist-legend-item"><div class="db-dist-legend-dot" style="background:#3A7A6A;"></div>Leaning Company (48)</div>
+            <div class="db-dist-legend-item"><div class="db-dist-legend-dot" style="background:#6A7A72;"></div>Undecided — Critical Swing Group (72)</div>
+            <div class="db-dist-legend-item"><div class="db-dist-legend-dot" style="background:#C0732B;"></div>Leaning Organizing (48)</div>
+            <div class="db-dist-legend-item" style="color:rgba(255,255,255,0.7);font-weight:500;"><div class="db-dist-legend-dot" style="background:#C0392B;"></div>Elevated Risk — Strategic Priority (60)</div>
+          </div>
+          <div style="margin-top:20px;padding:14px;background:rgba(192,57,43,0.1);border:1px solid rgba(192,57,43,0.2);">
+            <div style="font-size:12px;color:rgba(255,255,255,0.6);line-height:1.6;"><strong style="color:#C0392B;">Key finding:</strong> With 72 undecided employees and historical data showing 65–70% of neutrals move toward organizing without intervention, this organization is at active election risk. Immediate management effectiveness programs are warranted.</div>
+          </div>
+        </div>
+      </div>
+      <div class="db-queue">
+        <div class="db-queue-card high">
+          <div class="db-queue-label red">Elevated Risk</div>
+          <div class="db-queue-num">60</div>
+          <div class="db-queue-sub">Require strategic engagement priority</div>
+        </div>
+        <div class="db-queue-card watch">
+          <div class="db-queue-label amber">Monitor Closely</div>
+          <div class="db-queue-num">48</div>
+          <div class="db-queue-sub">Persuadable — active retention focus</div>
+        </div>
+        <div class="db-queue-card neutral">
+          <div class="db-queue-label slate">Undecided</div>
+          <div class="db-queue-num">72</div>
+          <div class="db-queue-sub">Critical swing group — outcome determinative</div>
+        </div>
+        <div class="db-queue-card company">
+          <div class="db-queue-label green">Company-Leaning</div>
+          <div class="db-queue-num">84</div>
+          <div class="db-queue-sub">Maintain relationships and communication</div>
+        </div>
+      </div>
+      <div class="db-alert">
+        <div class="db-alert-text"><strong>Audit scope:</strong> Assessment covers management effectiveness, workforce disposition, compensation equity, communication health, safety culture, and general work experience — by department, location, shift, and supervisor group. Findings are used to identify operational root causes and build targeted improvement programs.</div>
+      </div>
+      <div class="db-footer">
+        <div class="db-footer-note">Sample output shown for illustration. Actual reports contain full department, shift, location, and supervisor-group breakdowns. All work is conducted lawfully and confidentially.</div>
+      </div>
+    </div>
+
+    <!-- Six Dimensions -->
+    <div class="six-dims">
+      <h3 class="six-dims-title">Six dimensions. One complete picture.</h3>
+      <div class="six-dims-grid">
+        <div class="dim-card"><div class="dim-num">01 — Management</div><div class="dim-title">Leadership Effectiveness</div><div class="dim-body">How employees experience their direct supervisors — the single biggest driver of organizing activity. Assessed by department, shift, and supervisor group to pinpoint exactly where friction originates.</div></div>
+        <div class="dim-card"><div class="dim-num">02 — Organizing Propensity</div><div class="dim-title">Workforce Disposition</div><div class="dim-body">An aggregate measure of organizing sentiment across departments, locations, and seniority groups — identifying where risk is concentrated and which operational conditions are driving it.</div></div>
+        <div class="dim-card"><div class="dim-num">03 — Pay &amp; Benefits</div><div class="dim-title">Compensation Equity</div><div class="dim-body">Whether employees believe they are fairly compensated relative to the market and to peers. Wage compression and perceived inequity are among the most commonly cited organizing triggers.</div></div>
+        <div class="dim-card dark"><div class="dim-num">04 — Communication</div><div class="dim-title">Information Flow</div><div class="dim-body">Whether employees feel heard and informed. One-directional communication — downward only, with no upward channel — is a consistent leading predictor of organizing activity across industries.</div></div>
+        <div class="dim-card dark"><div class="dim-num">05 — Safety &amp; Conditions</div><div class="dim-title">Workplace Environment</div><div class="dim-body">Physical working conditions, equipment maintenance, and safety culture. Unresolved safety concerns are frequently cited in both ULP charges and organizing campaigns as primary grievances.</div></div>
+        <div class="dim-card dark"><div class="dim-num">06 — Work Experience</div><div class="dim-title">Overall Satisfaction</div><div class="dim-body">The composite employee experience — whether people feel respected, valued, and engaged. The gap between how leadership believes employees feel and how they actually feel is where campaigns are born.</div></div>
+      </div>
+    </div>
+
+    <!-- Audit CTA -->
+    <div class="audit-cta">
+      <div>
+        <div class="audit-cta-headline">Request a <em>Confidential Vulnerability Assessment</em></div>
+        <p class="audit-cta-sub">We conduct a confidential intake to understand your organization's size, industry, and current situation. If an assessment is warranted, we outline exactly what it involves, what it delivers, and what it costs — before any engagement begins.</p>
+      </div>
+      <div style="text-align:center;flex-shrink:0;">
+        <a href="#intake" class="btn-primary" style="display:block;margin-bottom:12px;">Request Assessment →</a>
+        <div style="font-size:11px;color:rgba(255,255,255,0.35);letter-spacing:0.04em;">Confidential · No obligation</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CAMPAIGN RESPONSE -->
+<section id="campaign">
+  <div class="campaign-inner">
+    <div class="section-label">
+      <div class="section-label-line"></div>
+      <span class="section-label-text">When the Petition Is Already Filed</span>
+    </div>
+    <h2 class="section-headline" style="margin-bottom:48px;">24-Hour Campaign<br><em>Response.</em></h2>
+    <div class="campaign-grid">
+      <div>
+        <div class="campaign-body">
+          <p>When an NLRB petition is filed, the clock starts immediately. The timeline is compressed, the stakes are high, and the cost of disorganized response is enormous.</p>
+          <p>Our campaign response team has advised employers through more than 200 NLRB elections across every major industry. We deploy quickly, establish strategic direction within hours, and coordinate every element of your response — legal, operational, and communications.</p>
+          <p><strong>We have been in this situation before. Many times. We know exactly what to do — and what not to do.</strong></p>
+        </div>
+        <div class="timeline" style="margin-top:32px;">
+          <div class="timeline-item">
+            <div class="timeline-time">Hour 1</div>
+            <div><div class="timeline-content-title">Situation Assessment</div><div class="timeline-content-body">Senior advisor on a call with your team. We establish the timeline, understand the workforce composition, identify known organizers and informal leaders, and map the immediate legal landscape.</div></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">Day 1–3</div>
+            <div><div class="timeline-content-title">Strategic Direction Set</div><div class="timeline-content-body">Campaign strategy established. Legal coordination confirmed. Supervisor training program initiated. Communication timeline built. We are present and directing — not advising from a distance.</div></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">Week 1–2</div>
+            <div><div class="timeline-content-title">Full Program Execution</div><div class="timeline-content-body">Workforce communications deployed. Supervisor coaching underway. Employee listening sessions structured. Legal filings coordinated. We manage the entire campaign response as an integrated operation.</div></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">Election Day</div>
+            <div><div class="timeline-content-title">Election Support</div><div class="timeline-content-body">On-site presence, last-day communications, and legal observation. Whatever the result, we have positioned the company to move forward from a position of knowledge and strength.</div></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="campaign-right-title">What's Included in Campaign Response</div>
+        <div class="campaign-features">
+          <div class="campaign-feature">
+            <div class="campaign-feature-icon">⚖</div>
+            <div><div class="campaign-feature-title">NLRB Legal Coordination</div><div class="campaign-feature-body">We work alongside your labor counsel — or connect you with experienced labor attorneys — to ensure every NLRB filing, response, and hearing is handled with precision.</div></div>
+          </div>
+          <div class="campaign-feature">
+            <div class="campaign-feature-icon">🎯</div>
+            <div><div class="campaign-feature-title">Supervisor Training &amp; Coaching</div><div class="campaign-feature-body">Frontline supervisors are the most important factor in an election outcome. We train them on what they can say, what they cannot say, and how to have authentic conversations with their teams.</div></div>
+          </div>
+          <div class="campaign-feature">
+            <div class="campaign-feature-icon">📣</div>
+            <div><div class="campaign-feature-title">Workforce Communications</div><div class="campaign-feature-body">A lawful, credible, and strategically sequenced communications program that gives employees the information they need to make an informed decision.</div></div>
+          </div>
+          <div class="campaign-feature">
+            <div class="campaign-feature-icon">🧭</div>
+            <div><div class="campaign-feature-title">Insider Campaign Intelligence</div><div class="campaign-feature-body">Several of our team members have run union campaigns. They know every organizing tactic, communication strategy, and pressure point — because they've deployed them. That knowledge informs everything we do.</div></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- INSIDER ADVANTAGE -->
-<section id="insider">
-  <div class="section-inner">
-    <div class="insider-grid fade-up">
-      <div class="insider-left">
-        <div class="section-label">
-          <div class="section-label-line"></div>
-          <span class="section-label-text">The Team</span>
+<!-- CASE STUDIES -->
+<section id="cases">
+  <div class="cases-inner">
+    <div class="section-label-light">
+      <div class="section-label-light-line"></div>
+      <span class="section-label-light-text">Anonymized Outcomes</span>
+    </div>
+    <h2 class="section-headline-light" style="margin-bottom:8px;">We've been in<br>your situation <em>before.</em></h2>
+    <p style="font-size:15px;color:rgba(255,255,255,0.45);font-weight:300;max-width:580px;line-height:1.7;margin-bottom:48px;">Client identities are always protected. These outcomes represent the type of situations we navigate regularly.</p>
+    <div class="cases-grid">
+      <div class="case-card">
+        <div class="case-industry">Manufacturing — Multi-Location</div>
+        <div class="case-situation">Early organizing signals detected before any petition was filed.</div>
+        <div class="case-what">Our team deployed a full SentimentIQ™ assessment across 4 facilities. We identified management effectiveness gaps and compensation perception issues driving dissatisfaction in two specific departments. A 90-day supervisor training and communication reset program was implemented.</div>
+        <div class="case-outcome-label">Outcome</div>
+        <div class="case-outcome"><strong>No petition was ever filed.</strong> Within 6 months, voluntary turnover in the affected departments dropped by 34% and management satisfaction scores improved significantly across all facilities.</div>
+      </div>
+      <div class="case-card">
+        <div class="case-industry">Healthcare — Regional System</div>
+        <div class="case-situation">NLRB petition filed with a compressed election timeline.</div>
+        <div class="case-what">Our campaign response team engaged within hours of the petition. We established legal coordination, initiated supervisor coaching, and deployed a workforce communication program. Former union officials on our team provided direct intelligence on organizer strategy and tactics.</div>
+        <div class="case-outcome-label">Outcome</div>
+        <div class="case-outcome"><strong>Employees voted to remain union-free.</strong> Post-election, the organization implemented a structured employee listening program that addressed the core concerns that had driven organizing interest.</div>
+      </div>
+      <div class="case-card">
+        <div class="case-industry">Distribution — Private Equity Portfolio</div>
+        <div class="case-situation">Unionized operation entering first contract negotiations.</div>
+        <div class="case-what">Our negotiating team conducted full cost modeling, built the company's bargaining strategy, and represented management at the table. We identified operational flexibility provisions that were non-negotiable and structured proposals around them from the first session.</div>
+        <div class="case-outcome-label">Outcome</div>
+        <div class="case-outcome"><strong>Contract ratified preserving key operational flexibility.</strong> Labor cost increase held within PE portfolio projections. Management credibility with the workforce meaningfully improved through the process.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="team-inner">
+    <div class="section-label">
+      <div class="section-label-line"></div>
+      <span class="section-label-text">The Team</span>
+    </div>
+    <h2 class="section-headline" style="margin-bottom:48px;">We know how organizing<br>campaigns are <em>actually run.</em></h2>
+    <div class="team-grid">
+      <div>
+        <div class="team-body">
+          <p>International Labor Relations was built with one standard: assemble the most experienced labor relations professionals in the country and give them the resources to do their best work.</p>
+          <p>Several members of our team have worked inside union campaigns, labor organizations, management teams, and NLRB processes. That experience helps us anticipate organizing dynamics, understand employee concerns at a level that goes beyond the surface, and help employers build stronger direct relationships with their workforce — <strong>lawfully, credibly, and operationally.</strong></p>
+          <p>We are not ideological. We are not anti-union as a matter of principle. We believe that when employees and management have a genuinely strong direct relationship, outside representation becomes unnecessary. When that relationship has broken down, we help rebuild it — and when a campaign is already underway, we know every move that's coming.</p>
         </div>
-        <h2 class="section-headline">We know how<br>organizing campaigns<br><em>are actually run.</em></h2>
-        <p>International Labor Relations was built with one standard: assemble the best performers in the country and give them the resources to do their best work.</p>
-        <p>Several members of our team spent years as senior union officials. They didn't leave the labor movement because they were ineffective — they left because they concluded that <strong>employees are better served by a strong direct relationship with management than by an institution that benefits from maintaining conflict.</strong></p>
-        <p>That inside perspective informs everything we do. We understand every tactic, every pressure point, every communication strategy an organizing campaign will deploy — because some of us deployed them.</p>
-        <div class="insider-credential-row">
-          <span class="cred-chip">Former Union Officials</span>
-          <span class="cred-chip">NLRB Veterans</span>
-          <span class="cred-chip">Labor Attorneys</span>
-          <span class="cred-chip">HR Operations Leaders</span>
-          <span class="cred-chip">Industrial Relations Specialists</span>
-          <span class="cred-chip">C-Suite Advisors</span>
+        <div class="team-creds">
+          <span class="team-cred">Former Union Officials</span>
+          <span class="team-cred">NLRB Veterans</span>
+          <span class="team-cred">Labor Attorneys</span>
+          <span class="team-cred">HR Operations Leaders</span>
+          <span class="team-cred">Industrial Relations Specialists</span>
+          <span class="team-cred">C-Suite Advisors</span>
         </div>
       </div>
-      <div class="insider-right">
-        <p class="insider-quote">
-          I spent over a decade organizing workers. I believed in it. But I came to see that unions today too often serve themselves — that the adversarial model extracts value from both sides. Here, I can actually help employers and employees build something that lasts.
-        </p>
-        <div class="insider-quote-attr">Former Regional Director, National Labor Union</div>
+      <div class="team-quote-box">
+        <div class="team-quote-mark">"</div>
+        <div class="team-quote">I spent over a decade organizing workers. I believed in it. But I came to see that the adversarial model too often extracts value from both sides rather than building something lasting. Here, I can help employers and employees build workplaces that actually work — without a middleman whose business model depends on the conflict continuing.</div>
+        <div class="team-quote-attr">Former Regional Director, National Labor Union</div>
       </div>
     </div>
   </div>
@@ -908,8 +946,8 @@
 
 <!-- SERVICES -->
 <section id="services">
-  <div class="section-inner">
-    <div class="services-header fade-up">
+  <div class="services-inner">
+    <div class="services-header">
       <div>
         <div class="section-label">
           <div class="section-label-line"></div>
@@ -917,99 +955,127 @@
         </div>
         <h2 class="section-headline">Comprehensive labor strategy,<br>from <em>prevention to resolution.</em></h2>
       </div>
-      <p class="services-intro-text">We are not union busters. We are advisors who believe that when a company and its workforce have a genuine, direct relationship — one built on transparency, fairness, and operational clarity — outside representation becomes unnecessary. Our services reflect that belief.</p>
+      <p class="services-intro">We are not union busters. We are advisors who believe that when a company and its workforce have a genuine, direct relationship — built on transparency, fairness, and operational clarity — outside representation becomes unnecessary. Our services reflect that belief.</p>
     </div>
-
-    <div class="services-grid fade-up">
+    <div class="services-grid">
       <div class="service-card">
-        <svg class="service-icon" viewBox="0 0 36 36" fill="none" stroke="#0B1929" stroke-width="1.5">
-          <circle cx="18" cy="18" r="14"/><circle cx="18" cy="18" r="6"/>
-          <line x1="18" y1="4" x2="18" y2="12"/><line x1="18" y1="24" x2="18" y2="32"/>
-          <line x1="4" y1="18" x2="12" y2="18"/><line x1="24" y1="18" x2="32" y2="18"/>
-        </svg>
-        <h3 class="service-title">Vulnerability Assessment</h3>
-        <p class="service-body">A rigorous operational and cultural audit that identifies the specific conditions driving employee dissatisfaction — and maps the organizational risk of organizing activity before it begins.</p>
-        <a href="#" class="service-link">Learn More →</a>
+        <div class="service-icon">🔎</div>
+        <div class="service-title">Vulnerability Assessment</div>
+        <p class="service-body">A rigorous workforce-risk audit that identifies the specific operational and cultural conditions driving dissatisfaction — and maps organizing risk by department, location, shift, and supervisor group.</p>
+        <a href="#intake" class="service-link">Request Assessment →</a>
       </div>
       <div class="service-card">
-        <svg class="service-icon" viewBox="0 0 36 36" fill="none" stroke="#0B1929" stroke-width="1.5">
-          <rect x="4" y="8" width="28" height="20" rx="1"/>
-          <line x1="4" y1="14" x2="32" y2="14"/>
-          <line x1="13" y1="8" x2="13" y2="14"/>
-          <line x1="23" y1="8" x2="23" y2="14"/>
-        </svg>
-        <h3 class="service-title">Proactive Relations Programs</h3>
-        <p class="service-body">Structured, ongoing programs that build the management culture, communication infrastructure, and leadership behaviors that make direct employee relationships sustainable long-term.</p>
-        <a href="#" class="service-link">Learn More →</a>
+        <div class="service-icon">🛡</div>
+        <div class="service-title">Campaign Response</div>
+        <p class="service-body">When a petition is filed or organizing activity is confirmed, we deploy immediately — legal coordination, supervisor training, workforce communications, and full election-day support.</p>
+        <a href="tel:2123350339" class="service-link">Call (212) 335-0339 →</a>
       </div>
       <div class="service-card">
-        <svg class="service-icon" viewBox="0 0 36 36" fill="none" stroke="#0B1929" stroke-width="1.5">
-          <path d="M6 30 L6 18 L18 6 L30 18 L30 30"/>
-          <rect x="14" y="22" width="8" height="8"/>
-          <line x1="18" y1="6" x2="18" y2="2"/>
-        </svg>
-        <h3 class="service-title">Campaign Response</h3>
-        <p class="service-body">When a campaign is underway, our team deploys immediately. We provide strategic direction, legal coordination, supervisor coaching, and workforce communications at every phase of the election process.</p>
-        <a href="#" class="service-link">Learn More →</a>
+        <div class="service-icon">🤝</div>
+        <div class="service-title">Proactive Relations Programs</div>
+        <p class="service-body">Structured, ongoing programs that build the management culture, communication infrastructure, and leadership behaviors that make direct employee relationships durable.</p>
+        <a href="#intake" class="service-link">Learn More →</a>
       </div>
       <div class="service-card">
-        <svg class="service-icon" viewBox="0 0 36 36" fill="none" stroke="#0B1929" stroke-width="1.5">
-          <path d="M10 26 C10 20, 18 18, 18 12 C18 18, 26 20, 26 26"/>
-          <line x1="10" y1="26" x2="26" y2="26"/>
-          <line x1="18" y1="12" x2="18" y2="6"/>
-        </svg>
-        <h3 class="service-title">Contract Negotiations</h3>
-        <p class="service-body">For unionized workplaces, our experienced negotiators represent your interests at the table with the same rigor and preparation we bring to every engagement — protecting your operational and financial position.</p>
-        <a href="#" class="service-link">Learn More →</a>
+        <div class="service-icon">📋</div>
+        <div class="service-title">Contract Negotiations</div>
+        <p class="service-body">For unionized workplaces, our experienced negotiators represent your interests at the table — protecting operational flexibility and financial position with full preparation and strategic clarity.</p>
+        <a href="#intake" class="service-link">Discuss Strategy →</a>
       </div>
       <div class="service-card">
-        <svg class="service-icon" viewBox="0 0 36 36" fill="none" stroke="#0B1929" stroke-width="1.5">
-          <circle cx="12" cy="12" r="5"/>
-          <circle cx="24" cy="12" r="5"/>
-          <circle cx="18" cy="26" r="5"/>
-          <line x1="16" y1="12" x2="20" y2="12"/>
-          <line x1="14" y1="16" x2="16" y2="22"/>
-          <line x1="22" y1="16" x2="20" y2="22"/>
-        </svg>
-        <h3 class="service-title">Leadership Training</h3>
-        <p class="service-body">The frontline supervisor is the single most important factor in employee satisfaction. We build the leadership behaviors, communication skills, and conflict-resolution capabilities that determine how your workforce experiences the company day-to-day.</p>
-        <a href="#" class="service-link">Learn More →</a>
+        <div class="service-icon">🎓</div>
+        <div class="service-title">Supervisor &amp; Leadership Training</div>
+        <p class="service-body">The frontline supervisor is the single most important factor in employee satisfaction. We build the communication skills and leadership behaviors that determine how your workforce experiences the company daily.</p>
+        <a href="#intake" class="service-link">Learn More →</a>
       </div>
       <div class="service-card">
-        <svg class="service-icon" viewBox="0 0 36 36" fill="none" stroke="#0B1929" stroke-width="1.5">
-          <rect x="6" y="6" width="24" height="24" rx="1"/>
-          <line x1="12" y1="14" x2="24" y2="14"/>
-          <line x1="12" y1="19" x2="24" y2="19"/>
-          <line x1="12" y1="24" x2="18" y2="24"/>
-        </svg>
-        <h3 class="service-title">HR &amp; Operational Audits</h3>
-        <p class="service-body">An objective assessment of your HR policies, compensation practices, and operational procedures — identifying specific gaps that create dissatisfaction and legal exposure before they become liabilities.</p>
-        <a href="#" class="service-link">Learn More →</a>
+        <div class="service-icon">📊</div>
+        <div class="service-title">HR &amp; Operational Audits</div>
+        <p class="service-body">An objective review of your HR policies, compensation practices, and operational procedures — identifying gaps that create dissatisfaction and legal exposure before they become liabilities.</p>
+        <a href="#intake" class="service-link">Learn More →</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section id="cta">
-  <div class="section-inner">
-    <div class="cta-inner fade-up">
-      <div>
-        <h2 class="cta-headline">The consultation<br>is free.<br><em>The insight is immediate.</em></h2>
-        <p class="cta-sub">One conversation with our team will give you a clearer picture of your organization's labor vulnerability than most assessments. We'll listen, ask the right questions, and give you an honest read — no obligation, no pressure.</p>
-        <div class="cta-trust-row">
-          <div class="trust-item"><div class="trust-dot"></div> Always free</div>
-          <div class="trust-item"><div class="trust-dot"></div> Strictly confidential</div>
-          <div class="trust-item"><div class="trust-dot"></div> Available within 24 hours</div>
-          <div class="trust-item"><div class="trust-dot"></div> No obligation</div>
+<!-- INTAKE CTA -->
+<section id="intake">
+  <div class="intake-inner">
+    <div>
+      <div class="section-label-light" style="justify-content:flex-start;">
+        <div class="section-label-light-line"></div>
+        <span class="section-label-light-text">Get in Touch</span>
+      </div>
+      <h2 class="intake-headline">The review is free.<br><em>The insight is immediate.</em></h2>
+      <p class="intake-sub">One conversation with our team will give you a clearer picture of your organization's labor risk than most assessments. We'll listen, ask the right questions, and give you an honest read — no obligation, no pressure. If we're not the right fit, we'll tell you that too.</p>
+      <div class="intake-channels">
+        <a href="tel:2123350339" class="intake-channel">
+          <div class="intake-channel-icon">📞</div>
+          <div>
+            <div class="intake-channel-label">Call Direct</div>
+            <div class="intake-channel-value"><a href="tel:2123350339">(212) 335-0339</a></div>
+            <div class="intake-channel-sub">For active campaigns — call now. For all others, leave a message and we'll respond same day.</div>
+          </div>
+        </a>
+        <a href="mailto:el@ilrpro.com" class="intake-channel">
+          <div class="intake-channel-icon">✉</div>
+          <div>
+            <div class="intake-channel-label">Email</div>
+            <div class="intake-channel-value"><a href="mailto:el@ilrpro.com">el@ilrpro.com</a></div>
+            <div class="intake-channel-sub">Confidential. Reviewed by senior advisors only. Typically responded to within 4 business hours.</div>
+          </div>
+        </a>
+        <div class="intake-channel">
+          <div class="intake-channel-icon">🗓</div>
+          <div>
+            <div class="intake-channel-label">Schedule a Call</div>
+            <div class="intake-channel-value">Book a Confidential Consultation</div>
+            <div class="intake-channel-sub">Select a time that works for you. Add your Calendly link here.</div>
+          </div>
         </div>
       </div>
-      <div class="cta-box">
-        <div class="cta-box-headline">Schedule Your<br>Free Consultation</div>
-        <div class="cta-box-sub">No sales pitch. No obligation.</div>
-        <a href="#" class="btn-primary">Book a Call →</a>
-        <p class="cta-box-micro">Or call us directly: (212) 335-0339</p>
+    </div>
+    <div class="intake-form-box">
+      <div class="intake-form-title">Full Intake Form</div>
+      <div class="intake-form-sub">All information is strictly confidential and reviewed only by senior advisors.</div>
+      <div class="form-row"><label class="form-label">Name</label><input type="text" class="form-input" placeholder="Your full name"></div>
+      <div class="form-row"><label class="form-label">Company</label><input type="text" class="form-input" placeholder="Company name"></div>
+      <div class="form-row"><label class="form-label">Your Role</label>
+        <select class="form-select">
+          <option value="">Select your role</option>
+          <option>CEO / President</option><option>COO / Operations</option><option>CHRO / HR Leader</option><option>General Counsel</option><option>Private Equity / Investor</option><option>Other Executive</option>
+        </select>
       </div>
+      <div class="form-row"><label class="form-label">Email</label><input type="email" class="form-input" placeholder="Work email address"></div>
+      <div class="form-row"><label class="form-label">Phone</label><input type="tel" class="form-input" placeholder="Best number to reach you"></div>
+      <div class="form-row"><label class="form-label">Workforce Size</label>
+        <select class="form-select">
+          <option value="">Select size</option>
+          <option>Under 100 employees</option><option>100–500 employees</option><option>500–1,000 employees</option><option>1,000–5,000 employees</option><option>5,000+ employees</option>
+        </select>
+      </div>
+      <div class="form-row"><label class="form-label">Number of Locations</label>
+        <select class="form-select">
+          <option value="">Select</option>
+          <option>1</option><option>2–5</option><option>6–20</option><option>20+</option>
+        </select>
+      </div>
+      <div class="form-row"><label class="form-label">Current Situation</label>
+        <select class="form-select">
+          <option value="">What's happening?</option>
+          <option>No petition yet — early warning signs</option><option>Organizer activity suspected or confirmed</option><option>Petition filed with NLRB</option><option>Election scheduled</option><option>ULP charge filed</option><option>Already unionized / bargaining upcoming</option><option>Proactive — want a vulnerability assessment</option>
+        </select>
+      </div>
+      <div class="form-row"><label class="form-label">State(s) Involved</label><input type="text" class="form-input" placeholder="e.g. Ohio, Pennsylvania"></div>
+      <div class="form-row"><label class="form-label">How Urgent?</label>
+        <select class="form-select">
+          <option value="">Select urgency</option>
+          <option>Immediate — need help now</option><option>This week</option><option>This month</option><option>Planning ahead</option>
+        </select>
+      </div>
+      <div class="form-row"><label class="form-label">Confidential Notes</label><textarea class="form-textarea" placeholder="Anything else you'd like us to know before we speak. This goes directly to a senior advisor."></textarea></div>
+      <div class="form-privacy"><strong>🔒 All inquiries are strictly confidential.</strong> Reviewed by senior labor-relations advisors only. We will never share your information with any third party.</div>
+      <button class="btn-form-submit" onclick="alert('Thank you. A senior advisor will be in touch within 24 hours. For urgent matters, please call (212) 335-0339.')">Submit Confidentially →</button>
     </div>
   </div>
 </section>
@@ -1018,43 +1084,42 @@
 <footer>
   <div class="footer-inner">
     <div>
-      <div class="footer-brand-top">International Labor Relations</div>
+      <div class="footer-brand-name">International Labor Relations</div>
       <div class="footer-brand-sub">Labor Strategy &amp; Advisory</div>
-      <p class="footer-tagline">The firm that serious companies call when the stakes are highest. Proactive, strategic, and grounded in real operational insight.</p>
+      <p class="footer-tagline">The firm serious companies call when the stakes are highest. Proactive, strategic, and grounded in real operational insight.</p>
     </div>
     <div class="footer-col">
       <div class="footer-col-title">Services</div>
       <ul>
-        <li><a href="#">Vulnerability Assessment</a></li>
-        <li><a href="#">Proactive Programs</a></li>
-        <li><a href="#">Campaign Response</a></li>
-        <li><a href="#">Contract Negotiations</a></li>
-        <li><a href="#">Leadership Training</a></li>
-        <li><a href="#">HR Audits</a></li>
+        <li><a href="#vulnerability">Vulnerability Assessment</a></li>
+        <li><a href="#campaign">Campaign Response</a></li>
+        <li><a href="#services">Proactive Programs</a></li>
+        <li><a href="#services">Contract Negotiations</a></li>
+        <li><a href="#services">Leadership Training</a></li>
+        <li><a href="#services">HR Audits</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <div class="footer-col-title">Firm</div>
       <ul>
-        <li><a href="#">About ILR</a></li>
-        <li><a href="#">Our Approach</a></li>
-        <li><a href="#">The Team</a></li>
-        <li><a href="#">Industries</a></li>
-        <li><a href="#">Insights</a></li>
+        <li><a href="#team">About ILR</a></li>
+        <li><a href="#next">Our Approach</a></li>
+        <li><a href="#cases">Outcomes</a></li>
+        <li><a href="#situation">Your Situation</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <div class="footer-col-title">Contact</div>
       <ul>
-        <li><a href="#">Schedule a Consultation</a></li>
-        <li><a href="#">(212) 335-0339</a></li>
-        <li><a href="#">el@ilrpro.com</a></li>
-        <li><a href="#">Locations</a></li>
+        <li><a href="#intake">Request a Review</a></li>
+        <li><a href="tel:2123350339">(212) 335-0339</a></li>
+        <li><a href="mailto:el@ilrpro.com">el@ilrpro.com</a></li>
+        <li><a href="https://ilrpro-usa.com">ilrpro-usa.com</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <span class="footer-copy">© 2025 International Labor Relations. All rights reserved.</span>
+    <span class="footer-copy">© 2025 International Labor Relations. All rights reserved. Not a law firm.</span>
     <div class="footer-legal">
       <a href="#">Privacy Policy</a>
       <a href="#">Terms of Use</a>
@@ -1063,28 +1128,5 @@
   </div>
 </footer>
 
-<script>
-  // Intersection observer for fade-up animations
-  const isMobile = window.innerWidth <= 768;
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        const children = e.target.querySelectorAll('.pillar, .service-card, .hero-stat-card');
-        children.forEach((c, i) => {
-          c.style.transitionDelay = (i * 0.08) + 's';
-        });
-      }
-    });
-  }, { threshold: isMobile ? 0.05 : 0.12 });
-
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-  // Ensure elements in viewport on load are visible immediately
-  document.querySelectorAll('.fade-up').forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight) el.classList.add('visible');
-  });
-</script>
 </body>
 </html>
